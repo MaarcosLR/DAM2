@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Acceso a Datos/Tema 1/Excepciones/Ejercicios/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/untitled/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Acceso a Datos/Tema 1/Ficheros/Ejercicios/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Acceso a Datos/REPASO JAVA/Ejercicio_Repaso/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Programación de servicios y procesos/Tema 1/Ejercicios/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Acceso a Datos/Tema 2/JDBC" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/ComponenteEditado" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/EjComponentes" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/EjPractica3" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/KeyListenerExample" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/MouseListenerExample" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/TestJAR" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Tema 1/Practica_1" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Tema 2/Practica_2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Tema 2/Practica_2extra" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Tema 3/Practica_3" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Programación de servicios y procesos/Tema 1/Ejercicios" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
