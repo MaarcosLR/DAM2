@@ -1,14 +1,14 @@
 import java.sql.*;
 import java.util.Scanner;
 
-public class EjercicioInyeccionesPreparedStatment {
+public class EjercicioInyeccionesStatement {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/usuarios";
         String usuario = "root";
         String contraseña = "1234";
 
         try (Connection con = DriverManager.getConnection(url, usuario, contraseña);
-             PreparedStatement pstmt = con.prepareStatement("SELECT nombre, contraseña FROM usuarios WHERE nombre = ? AND contraseña = ?")) {
+             Statement stmt = con.createStatement()) {
 
             Scanner sc = new Scanner(System.in);
             System.out.println("Introduzca su usuario: ");
@@ -16,10 +16,8 @@ public class EjercicioInyeccionesPreparedStatment {
             System.out.println("Introduzca su contraseña: ");
             String contraseniaCust = sc.nextLine();
 
-            pstmt.setString(1, usuarioCust);
-            pstmt.setString(2, contraseniaCust);
-
-            ResultSet rs = pstmt.executeQuery();
+            String sql = "SELECT nombre, contraseña FROM usuarios WHERE nombre = '" + usuarioCust + "'AND contraseña = '" + contraseniaCust + "'";
+            ResultSet rs = stmt.executeQuery(sql);
 
             if (rs.next()) {
                 System.out.println("Inicio de sesión exitoso.");
