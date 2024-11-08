@@ -12,7 +12,6 @@ public class LeerEstudiantes {
 
         try (Connection con = DriverManager.getConnection(url, usuario, contraseña);
              Statement stmt = con.createStatement()) {
-
             String sql = "SELECT * FROM Estudiantes";
             ResultSet rs = stmt.executeQuery(sql);
 
