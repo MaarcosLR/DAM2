@@ -1,0 +1,76 @@
+Ejercicio 1:
+
+Escribe un programa que lea el contenido de un fichero y lo muestre por consola utilizando BufferedReader.
+
+
+Solución Ejercicio 1:
+
+
+import java.io.*;
+
+public class LeerArchivo {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("archivo.txt"));
+        String linea;
+        
+        while ((linea = br.readLine()) != null) {
+            System.out.println(linea);
+        }
+        br.close();
+    }
+}
+
+Ejercicio 2:
+
+Escribe un programa que cuente las lineas de un archivo utilizando BufferedReader.
+
+Solución Ejercicio 2:
+
+import java.io.*;
+
+public class ContarLineas {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("archivo.txt"));
+        int contador = 0;
+        
+        while (br.readLine() != null) {
+            contador++;
+        }
+        br.close();
+        System.out.println("Número de líneas: " + contador);
+    }
+}
+
+Ejercicio 3:
+
+Escribe un programa que cuente busque una palabra determinada en un archivo de texto.
+
+Solución Ejercicio 3:
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class BuscarPalabraArchivo {
+    public static void main(String[] args) {
+        String rutaArchivo = "archivo.txt";
+        String palabraClave = "palabra_a_buscar";
+        boolean encontrada = false;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (linea.contains(palabraClave)) {
+                    System.out.println("Palabra encontrada: " + linea);
+                    encontrada = true;
+                    break;  // salir si la palabra se encuentra
+                }
+            }
+            if (!encontrada) {
+                System.out.println("Palabra no encontrada.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

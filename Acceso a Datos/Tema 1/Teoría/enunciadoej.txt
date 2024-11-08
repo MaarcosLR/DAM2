@@ -1,0 +1,8 @@
+Dado un directorio con imagenes escribir un programa que renombre las imagenes con el siguiente formato:
+
+dia mes año hora min seg
+
+dd mm aaaa hh mm ss
+
+donde el mes es la fecha de creación del archivo
+usando la clase file

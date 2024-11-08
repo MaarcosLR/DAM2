@@ -1,0 +1,128 @@
+EJERCICIOS BÁSICOS DE GESTIÓN DE EXCEPCIONES
+
+Ejercicio 1:
+	Crea un método llamado dividir que tome dos parámetros, numerador y denominador, y lance una excepción de tipo ArithmeticException si el denominador es igual a cero.
+
+public class Division {
+    public static double dividir(int numerador, int denominador) {
+        if (denominador == 0) {
+            throw new ArithmeticException("No se puede dividir por cero");
+        }
+        return numerador / (double) denominador;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(dividir(10, 0)); // Esto lanzará una excepción
+    }
+}
+Ejercicio 2:
+	Desarrolla un método llamado verificarEdad que reciba un entero representando la edad de una persona. Si la edad es menor de 18 años, lanza una excepción personalizada MenorDeEdadException.
+
+class MenorDeEdadException extends Exception {
+    public MenorDeEdadException(String mensaje) {
+        super(mensaje);
+    }
+}
+
+public class VerificarEdad {
+    public static void verificarEdad(int edad) throws MenorDeEdadException {
+        if (edad < 18) {
+            throw new MenorDeEdadException("El usuario es menor de edad");
+        } else {
+            System.out.println("Acceso permitido");
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            verificarEdad(16);
+        } catch (MenorDeEdadException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+Ejercicio 3:
+	Implementa una clase llamada CuentaBancaria con un método retirarDinero que tome un monto como parámetro. Si el monto es mayor que el saldo actual de la cuenta, lanza una excepción SaldoInsuficienteException.
+
+class SaldoInsuficienteException extends Exception {
+    public SaldoInsuficienteException(String mensaje) {
+        super(mensaje);
+    }
+}
+
+public class CuentaBancaria {
+    private double saldo;
+
+    public CuentaBancaria(double saldoInicial) {
+        this.saldo = saldoInicial;
+    }
+
+    public void retirarDinero(double monto) throws SaldoInsuficienteException {
+        if (monto > saldo) {
+            throw new SaldoInsuficienteException("Saldo insuficiente para retirar el monto solicitado");
+        }
+        saldo -= monto;
+        System.out.println("Retiro exitoso. Saldo restante: " + saldo);
+    }
+
+    public static void main(String[] args) {
+        CuentaBancaria cuenta = new CuentaBancaria(100);
+        try {
+            cuenta.retirarDinero(150);
+        } catch (SaldoInsuficienteException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+Ejercicio 4:
+	Crea un método llamado verificarContraseña que acepte una cadena de texto como parámetro y lance una excepción ContraseñaInvalidaException si la contraseña no contiene al menos 8 caracteres o no tiene algún número.
+
+class ContraseñaInvalidaException extends Exception {
+    public ContraseñaInvalidaException(String mensaje) {
+        super(mensaje);
+    }
+}
+
+public class VerificarContraseña {
+    public static void verificarContraseña(String contraseña) throws ContraseñaInvalidaException {
+        if (contraseña.length() < 8 || !contraseña.matches(".*\\d.*")) {
+            throw new ContraseñaInvalidaException("La contraseña es inválida. Debe tener al menos 8 caracteres y contener un número.");
+        } else {
+            System.out.println("Contraseña válida");
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            verificarContraseña("abcdef");
+        } catch (ContraseñaInvalidaException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+Ejercicio 5:
+	Desarrolla un método llamado asignarNota que acepte una nota como parámetro y lance una excepción NotaInvalidaException si la nota no está en el rango de 0 a 10.
+
+class NotaInvalidaException extends Exception {
+    public NotaInvalidaException(String mensaje) {
+        super(mensaje);
+    }
+}
+
+public class AsignarNota {
+    public static void asignarNota(int nota) throws NotaInvalidaException {
+        if (nota < 0 || nota > 10) {
+            throw new NotaInvalidaException("La nota debe estar entre 0 y 10.");
+        } else {
+            System.out.println("Nota asignada: " + nota);
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            asignarNota(12);
+        } catch (NotaInvalidaException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}

@@ -1,0 +1,27 @@
+FileReader se utiliza para leer datos de un archivo de texto carácter por carácter.
+Ejemplo:
+
+import java.io.FileReader;
+import java.io.IOException;
+
+public class LeerArchivo {
+    public static void main(String[] args) {
+        try {
+            FileReader fr = new FileReader("archivo.txt");
+            int i;
+            
+            // Lee el archivo carácter por carácter
+            while ((i = fr.read()) != -1) {
+                System.out.print((char) i); // Convierte el entero a char y lo imprime
+            }
+            fr.close(); // Cierra el archivo
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+Explicación:
+• FileReader se usa para abrir y leer el archivo.
+• El método read() devuelve un entero, que se convierte a carácter. Cada vez que se utiliza adelanta una posición en el fichero. Si el final del archivo ha sido alcanzado, devuelve -1.
+• Se cierra el archivo con close() al finalizar.
+

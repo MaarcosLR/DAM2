@@ -1,0 +1,101 @@
+Ejercicios con FileWriter
+
+Ejercicio 1: Escribir texto formateado con PrintWriter
+Enunciado:
+Escribe un programa que escriba una lista de números y sus cuadrados en un archivo llamado archivoPrintWriter.txt usando PrintWriter para formatear la salida.
+Solución:
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class EjercicioPrintWriter {
+    public static void main(String[] args) {
+        try {
+            // Crear una instancia de PrintWriter envuelta en FileWriter
+            PrintWriter writer = new PrintWriter(new FileWriter("archivoPrintWriter.txt"));
+            
+            // Escribir texto formateado en el archivo
+            writer.println("Número | Cuadrado");
+            writer.println("-----------------");
+            for (int i = 1; i <= 5; i++) {
+                writer.printf("%-6d | %-6d%n", i, i * i);  // Escribir el número y su cuadrado
+            }
+            
+            // Cerrar el flujo de escritura
+            writer.close();
+            
+            System.out.println("Escritura completada con PrintWriter.");
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al escribir en el archivo.");
+            e.printStackTrace();
+        }
+    }
+}
+Explicación:
+• PrintWriter se utiliza para escribir texto formateado, en este caso, una lista de números y sus cuadrados.
+• El método printf() permite escribir datos con un formato específico. El archivo archivoPrintWriter.txt contendrá una tabla simple con los números del 1 al 5 y sus cuadrados.
+
+Ejercicio 2: Escribir números y sus cuadrados en un archivo con formato
+Enunciado:
+Escribe un programa que genere los números del 1 al 10 y sus cuadrados, y los guarde en cuadradosPrintWriter.txt con un formato de tabla.
+Solución:
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class PrintWriterEjercicio1 {
+    public static void main(String[] args) {
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter("cuadradosPrintWriter.txt"));
+            writer.println("Número | Cuadrado");
+            writer.println("-----------------");
+            for (int i = 1; i <= 10; i++) {
+                writer.printf("%-6d | %-6d%n", i, i * i);
+            }
+            writer.close();
+            System.out.println("Números y sus cuadrados escritos en cuadradosPrintWriter.txt.");
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al escribir en el archivo.");
+            e.printStackTrace();
+        }
+    }
+}
+Explicación:
+• PrintWriter permite escribir los números y sus cuadrados en formato de tabla, donde los valores están alineados y organizados.
+
+Ejercicio 3: Escribir texto y variables en un archivo
+Enunciado:
+Escribe un programa que escriba el nombre de un producto, su cantidad y precio en un archivo productosPrintWriter.txt usando PrintWriter con formato.
+Solución:
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class PrintWriterEjercicio2 {
+    public static void main(String[] args) {
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter("productosPrintWriter.txt"));
+            
+            // Escribir los encabezados de la tabla
+            writer.printf("%-15s %-10s %-10s%n", "Producto", "Cantidad", "Precio");
+            writer.println("------------------------------");
+
+            // Escribir algunos productos con formato
+            writer.printf("%-15s %-10d %-10.2f%n", "Manzanas", 10, 1.50);
+            writer.printf("%-15s %-10d %-10.2f%n", "Naranjas", 20, 2.30);
+            writer.printf("%-15s %-10d %-10.2f%n", "Plátanos", 15, 1.80);
+            
+            writer.close();
+            System.out.println("Productos escritos en productosPrintWriter.txt.");
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al escribir en el archivo.");
+            e.printStackTrace();
+        }
+    }
+}
+Explicación:
+• PrintWriter permite escribir datos formateados, como texto y variables (cantidad y precio) con alineación y precisión específica.
+

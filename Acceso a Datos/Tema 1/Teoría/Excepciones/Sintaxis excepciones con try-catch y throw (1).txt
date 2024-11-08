@@ -1,0 +1,45 @@
+Excepciones con "try/catch" y "throw"
+
+Sintaxis básica con try/catch y throw:
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            metodoQueLanzaExcepcion(); // Se llama a un método que puede lanzar una excepción
+        } catch (IllegalArgumentException e) {
+            System.out.println("Excepción capturada: " + e.getMessage());
+        }
+    }
+
+    public static void metodoQueLanzaExcepcion() throws IllegalArgumentException {
+        throw new IllegalArgumentException("Se ha lanzado una excepción de tipo IllegalArgumentException");
+    }
+}
+Descripción:
+1. throw: Se utiliza dentro de un método o bloque de código para lanzar una excepción explícita.
+2. try: Bloque que contiene el código que podría lanzar una excepción.
+3. catch: Bloque que maneja la excepción lanzada en el bloque try.
+4. throws: Se usa en la declaración del método para indicar que este método puede lanzar una excepción específica.
+Ejemplo de uso con explicación:
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            verificarEdad(15); // Intenta verificar la edad, pero no cumple la condición
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage()); // Captura la excepción y muestra el mensaje de error
+        }
+    }
+
+    public static void verificarEdad(int edad) throws Exception {
+        if (edad < 18) {
+            throw new Exception("La edad debe ser mayor o igual a 18"); // Lanza la excepción si la edad es menor
+        }
+    }
+}
+Explicación del ejemplo:
+1. El método verificarEdad(int edad) comprueba si la edad es mayor o igual a 18. Si no lo es, lanza una excepción con throw.
+2. En el método main, el bloque try llama a verificarEdad(15), lo que provocará que se lance la excepción.
+3. La excepción es capturada en el bloque catch, y se imprime el mensaje de error.
+	Este patrón es útil para situaciones en las que quieres lanzar una excepción personalizada y luego capturarla en un bloque try/catch para manejarla adecuadamente.
+

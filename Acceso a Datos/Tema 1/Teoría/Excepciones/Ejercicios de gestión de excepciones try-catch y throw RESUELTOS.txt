@@ -1,0 +1,171 @@
+EJERCICIOS  DE GESTIÓN DE EXCEPCIONES
+
+1. 1. Gestión de inventario
+Enunciado: Crea una aplicación de inventario donde, al intentar agregar un nuevo producto, se lance una excepción personalizada ProductoDuplicadoException si el producto ya existe en el inventario. Utiliza throw para lanzar la excepción y try/catch para manejarla en el método principal.
+Solución:
+
+class ProductoDuplicadoException extends Exception {
+    public ProductoDuplicadoException(String mensaje) {
+        super(mensaje);
+    }
+}
+
+class Inventario {
+    private List<String> productos = new ArrayList<>();
+
+    public void agregarProducto(String producto) throws ProductoDuplicadoException {
+        if (productos.contains(producto)) {
+            throw new ProductoDuplicadoException("El producto ya existe en el inventario.");
+        }
+        productos.add(producto);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Inventario inventario = new Inventario();
+        try {
+            inventario.agregarProducto("Laptop");
+            inventario.agregarProducto("Laptop"); // Esto lanzará una excepción
+        } catch (ProductoDuplicadoException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+
+2. Conversión de moneda
+Enunciado: Diseña un programa que convierta cantidades de una moneda a otra. Si el monto ingresado es negativo, utiliza throw para lanzar una excepción MontoInvalidoException. Captura esta excepción con try/catch e informa al usuario que el monto ingresado es inválido.
+Solución:
+
+class MontoInvalidoException extends Exception {
+    public MontoInvalidoException(String mensaje) {
+        super(mensaje);
+    }
+}
+
+public class ConversorMoneda {
+    public static double convertir(double monto) throws MontoInvalidoException {
+        if (monto < 0) {
+            throw new MontoInvalidoException("El monto no puede ser negativo.");
+        }
+        return monto * 1.1; // Conversión de ejemplo
+    }
+
+    public static void main(String[] args) {
+        try {
+            double resultado = convertir(-5);
+            System.out.println("Monto convertido: " + resultado);
+        } catch (MontoInvalidoException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+
+3. Sistema de reservas de vuelos
+Enunciado: Implementa un sistema que permita reservar vuelos. Si el usuario intenta reservar un vuelo y no hay asientos disponibles, lanza una excepción AsientosNoDisponiblesException usando throw. Muestra un mensaje de error adecuado en la salida utilizando try/catch para capturar y gestionar la excepción.
+Solución:
+
+class AsientosNoDisponiblesException extends Exception {
+    public AsientosNoDisponiblesException(String mensaje) {
+        super(mensaje);
+    }
+}
+
+class Vuelo {
+    private int asientosDisponibles;
+
+    public Vuelo(int asientos) {
+        this.asientosDisponibles = asientos;
+    }
+
+    public void reservarAsiento() throws AsientosNoDisponiblesException {
+        if (asientosDisponibles <= 0) {
+            throw new AsientosNoDisponiblesException("No quedan asientos disponibles.");
+        }
+        asientosDisponibles--;
+        System.out.println("Asiento reservado.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vuelo vuelo = new Vuelo(0);
+        try {
+            vuelo.reservarAsiento();
+        } catch (AsientosNoDisponiblesException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+
+4. Procesamiento de archivos
+Enunciado: Crea un programa que lea un archivo de texto. Si el archivo no existe, lanza una excepción ArchivoNoEncontradoException utilizando throw. Utiliza try/catch para manejar el error y solicitar al usuario que ingrese una ruta válida.
+Solución:
+
+import java.io.*;
+
+class ArchivoNoEncontradoException extends Exception {
+    public ArchivoNoEncontradoException(String mensaje) {
+        super(mensaje);
+    }
+}
+
+public class ProcesadorArchivo {
+    public static void leerArchivo(String rutaArchivo) throws ArchivoNoEncontradoException {
+        File archivo = new File(rutaArchivo);
+        if (!archivo.exists()) {
+            throw new ArchivoNoEncontradoException("El archivo no existe.");
+        }
+        System.out.println("Leyendo archivo: " + rutaArchivo);
+    }
+
+    public static void main(String[] args) {
+        try {
+            leerArchivo("archivo_inexistente.txt");
+        } catch (ArchivoNoEncontradoException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+
+5. Sistema bancario
+Enunciado: Diseña un programa para realizar transferencias entre cuentas bancarias. Si el saldo de la cuenta no es suficiente para completar la transferencia, lanza una excepción SaldoInsuficienteException usando throw. Utiliza try/catch para capturar la excepción y devolver un mensaje indicando que la transferencia no es posible debido a fondos insuficientes.
+Solución:
+
+class SaldoInsuficienteException extends Exception {
+    public SaldoInsuficienteException(String mensaje) {
+        super(mensaje);
+    }
+}
+
+class CuentaBancaria {
+    private double saldo;
+
+    public CuentaBancaria(double saldoInicial) {
+        this.saldo = saldoInicial;
+    }
+
+    public void transferir(double monto) throws SaldoInsuficienteException {
+        if (monto > saldo) {
+            throw new SaldoInsuficienteException("Saldo insuficiente para realizar la transferencia.");
+        }
+        saldo -= monto;
+        System.out.println("Transferencia realizada. Nuevo saldo: " + saldo);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CuentaBancaria cuenta = new CuentaBancaria(100);
+        try {
+            cuenta.transferir(150);
+        } catch (SaldoInsuficienteException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+

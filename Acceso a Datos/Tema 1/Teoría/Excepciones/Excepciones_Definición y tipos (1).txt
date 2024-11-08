@@ -1,0 +1,29 @@
+Excepciones en Java
+
+	
+	Una excepción es un evento que ocurre durante la ejecución de un programa y que interrumpe el flujo normal de las instrucciones. Las excepciones generalmente surgen debido a errores en el código o condiciones inesperadas, como dividir entre cero, intentar acceder a una posición de un array fuera de sus límites, o trabajar con archivos que no existen.
+entajas del manejo de excepciones:
+• Facilita el manejo de errores en el programa de manera controlada.
+• Permite separar el código de manejo de errores del código principal.
+• Mejora la robustez y fiabilidad del software.
+Tipos de excepciones en Java:
+1. Checked exceptions: Son las excepciones que el compilador requiere que sean manejadas explícitamente mediante bloques de código de manejo de excepciones. Estas excepciones deben estar rodeadas por un bloque try-catch o ser declaradas con la cláusula throws en el método. Ejemplos: IOException, SQLException.
+2. Unchecked exceptions: Son excepciones que ocurren en tiempo de ejecución y no necesitan ser manejadas o declaradas por el compilador. Se derivan de la clase RuntimeException. Ejemplos: NullPointerException, ArrayIndexOutOfBoundsException.
+3. Errores (Errors): Son problemas graves que ocurren fuera del control del programa, como la falta de memoria o problemas con la máquina virtual de Java (JVM). No se recomienda intentar manejarlos en el código. Ejemplo: OutOfMemoryError.
+Estructura básica para manejar excepciones:
+Para manejar excepciones, Java utiliza los bloques try, catch, finally y throw:
+• try: Contiene el código que puede generar una excepción.
+• catch: Se ejecuta si ocurre una excepción en el bloque try.
+• finally: Contiene el código que siempre se ejecuta, independientemente de si hubo una excepción o no. Es útil para liberar recursos.
+• throw: Se utiliza para lanzar una excepción manualmente.
+
+try {
+    // Código que puede generar una excepción
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    // Manejo de la excepción
+    System.out.println("Error: División por cero");
+} finally {
+    // Este bloque siempre se ejecuta
+    System.out.println("Operación completada.");
+}

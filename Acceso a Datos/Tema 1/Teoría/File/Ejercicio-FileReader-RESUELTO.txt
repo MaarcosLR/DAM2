@@ -1,0 +1,37 @@
+Ejercicio 1:
+
+Escribe un programa que cuente las palabras de un fichero utilizando solamente la clase FileReader.
+
+
+Solución Ejercicio 1:
+
+
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ContarPalabras {
+    public static void main(String[] args) {
+        try {
+            FileReader fileReader = new FileReader("archivo.txt");
+            int c;
+            boolean esEspacio = true;
+            int contadorPalabras = 0;
+
+            while ((c = fileReader.read()) != -1) {
+                if (Character.isWhitespace(c)) {
+                    esEspacio = true;
+                } else {
+                    if (esEspacio) {
+                        contadorPalabras++;
+                    }
+                    esEspacio = false;
+                }
+            }
+
+            fileReader.close();
+            System.out.println("Número de palabras: " + contadorPalabras);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

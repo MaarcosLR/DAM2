@@ -1,0 +1,197 @@
+
+Ejercicio 1:
+
+a) Escribe el código necesario para obtener la siguiente información del archivo "c:/foto.jpg" .
+
+	Nombre del archivo: archivo.jpg
+	Ruta del archivo: C:\archivo.jpg
+	Ruta absoluta: C:\archivo.jpg
+	¿Se puede leer?: true
+	¿Se puede escribir?: true
+	Tamaño del archivo: - - - -  KB
+
+b) ¿Qué ocurre si el archivo no existe?.
+
+c) Modifica el código para que en caso de no existir el archivo nos lo comunique (Puedes usar if-then-else o excepciones).
+
+
+Solución Ejercicio 1 a)
+
+import java.io.File;
+
+public class FileExample {
+    public static void main(String[] args) {
+        // Crear un objeto File con la ruta de un archivo
+        File archivo = new File("C:/archivo.txt");
+
+        // Obtener y mostrar el nombre del archivo
+        System.out.println("Nombre del archivo: " + archivo.getName());
+        // Obtener y mostrar la ruta del archivo
+        System.out.println("Ruta del archivo: " + archivo.getPath());
+        // Obtener y mostrar la ruta absoluta del archivo
+        System.out.println("Ruta absoluta: " + archivo.getAbsolutePath());
+        // Comprobar si el archivo es legible
+        System.out.println("¿Se puede leer?: " + archivo.canRead());
+        // Comprobar si el archivo es modificable
+        System.out.println("¿Se puede escribir?: " + archivo.canWrite());
+        // Obtener y mostrar el tamaño del archivo en bytes
+        System.out.println("Tamaño del archivo : " + archivo.length() / 1024 + " KB"));
+    }
+}
+
+
+Solución Ejercicio 1 b)
+
+Esto es lo que mostraría:
+
+	Nombre del archivo: archivo.txt
+	Ruta del archivo: C:\archivo.txt
+	Ruta absoluta: C:\archivo.txt
+	¿Se puede leer?: false
+	¿Se puede escribir?: false
+	Tamaño del archivo (bytes): 0
+
+	Process finished with exit code 0
+
+Solución Ejercicio c)
+
+Esto es lo que mostraría:
+
+	
+import java.io.File;
+
+public class FileExample {
+    public static void main(String[] args) {
+        // Crear un objeto File con la ruta de un archivo
+        File archivo = new File("C:/archivo.txt");
+
+        // Si el archivo existe
+	if (archivo.exists()) {
+        // Obtener y mostrar el nombre del archivo
+        System.out.println("Nombre del archivo: " + archivo.getName());
+        // Obtener y mostrar la ruta del archivo
+        System.out.println("Ruta del archivo: " + archivo.getPath());
+        // Obtener y mostrar la ruta absoluta del archivo
+        System.out.println("Ruta absoluta: " + archivo.getAbsolutePath());
+        // Comprobar si el archivo es legible
+        System.out.println("¿Se puede leer?: " + archivo.canRead());
+        // Comprobar si el archivo es modificable
+        System.out.println("¿Se puede escribir?: " + archivo.canWrite());
+        // Obtener y mostrar el tamaño del archivo en bytes
+        System.out.println("Tamaño del archivo : " + archivo.length() / 1024 + " KB"));
+.......} else {
+           System.out.println("El archivo no existe.");
+    }
+}
+
+Enunciado 2:
+
+	Abre un archivo llamado "archivo.txt", lee su contenido línea por línea y sácalo por consola.
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class LeerArchivo {
+    public static void main(String[] args) {
+        try {
+            File archivo = new File("archivo.txt");
+            Scanner lector = new Scanner(archivo);
+            while (lector.hasNextLine()) {
+                String datos = lector.nextLine();
+                System.out.println(datos);
+            }
+            lector.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Archivo no encontrado.");
+        }
+    }
+}
+
+Ejercicio 3:
+	Sobrescribe el archivo "archivo.txt" con el texto "Nuevo contenido para el archivo".
+
+Solución ejercicio 3:
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class EscribirArchivo {
+    public static void main(String[] args) {
+        try {
+            FileWriter escritor = new FileWriter("archivo.txt");
+            escritor.write("Nuevo contenido para el archivo.");
+            escritor.close();
+            System.out.println("Archivo modificado exitosamente.");
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error.");
+        }
+    }
+}
+
+
+
+Enunciado:
+
+• Crear un archivo y directorios padres si no existen usando mkdirs() y createNewFile().
+• Mostrar detalles sobre el archivo, como su ruta, permisos, y si es un archivo o directorio.
+• Calcular el tamaño total de un directorio o archivo, considerando todos los archivos dentro de una carpeta con un método recursivo (obtenerTamano()).
+
+import java.io.File;
+import java.io.IOException;
+
+public class AdvancedFileExample {
+    public static void main(String[] args) {
+        try {
+            // Crear un nuevo archivo
+            File archivo = new File("C:/ejemplo/directorio/archivo_nuevo.txt");
+            
+            // Si el archivo no existe, lo crea
+            if (!archivo.exists()) {
+                archivo.getParentFile().mkdirs();  // Crear directorios padres si no existen
+                archivo.createNewFile();          // Crear el archivo
+                System.out.println("Archivo creado: " + archivo.getAbsolutePath());
+            } else {
+                System.out.println("El archivo ya existe.");
+            }
+            
+            // Mostrar detalles del archivo
+            System.out.println("Nombre del archivo: " + archivo.getName());
+            System.out.println("Ruta relativa: " + archivo.getPath());
+            System.out.println("Ruta absoluta: " + archivo.getAbsolutePath());
+            System.out.println("¿Se puede leer?: " + archivo.canRead());
+            System.out.println("¿Se puede escribir?: " + archivo.canWrite());
+
+            // Verificar si es un archivo o un directorio
+            if (archivo.isDirectory()) {
+                System.out.println("Es un directorio.");
+            } else if (archivo.isFile()) {
+                System.out.println("Es un archivo.");
+            }
+
+            // Obtener el tamaño del archivo o carpeta (recursivamente si es un directorio)
+            long tamanoTotal = obtenerTamano(archivo);
+            System.out.println("Tamaño total (bytes): " + tamanoTotal);
+
+        } catch (IOException e) {
+            System.out.println("Error al manejar el archivo: " + e.getMessage());
+        }
+    }
+
+    // Método recursivo para calcular el tamaño de un archivo o directorio
+    public static long obtenerTamano(File archivo) {
+        if (archivo.isFile()) {
+            return archivo.length();
+        } else if (archivo.isDirectory()) {
+            long tamano = 0;
+            File[] archivos = archivo.listFiles();
+            if (archivos != null) {
+                for (File f : archivos) {
+                    tamano += obtenerTamano(f);
+                }
+            }
+            return tamano;
+        }
+        return 0;
+    }
+}

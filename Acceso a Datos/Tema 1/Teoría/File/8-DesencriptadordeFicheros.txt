@@ -1,0 +1,50 @@
+	Desencriptador de archivos
+
+
+import java.io.FileReader;
+import java.io.IOException;
+
+public class SimpleDesencriptador {
+    public static void main(String[] args) {
+        // Archivo con el texto encriptado
+        String archivoEncriptado = "archivo_encriptado.txt";
+        StringBuilder textoDesencriptado = new StringBuilder();
+
+        try {
+            // Crear un FileReader para leer del archivo encriptado
+            FileReader reader = new FileReader(archivoEncriptado);
+
+            int caracter;
+            // Leer el archivo carácter por carácter
+            while ((caracter = reader.read()) != -1) {
+                // Restar 1 al valor alfanumérico del carácter encriptado
+                char caracterOriginal = (char) (caracter - 1);
+
+                // Agregar el carácter desencriptado al StringBuilder
+                textoDesencriptado.append(caracterOriginal);
+            }
+
+            // Cerrar el FileReader para liberar recursos
+            reader.close();
+
+            // Mostrar el texto desencriptado
+            System.out.println("Texto desencriptado: " + textoDesencriptado.toString());
+
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al leer el archivo.");
+            e.printStackTrace();
+        }
+    }
+}
+Explicación:
+1. FileReader: Se utiliza para leer el contenido del archivo encriptado, carácter por carácter.
+2. Desencriptación: Para cada carácter leído, se resta 1 de su valor alfanumérico para recuperar el carácter original.
+• Por ejemplo: 'I' se convierte en 'H', 'p' se convierte en 'o', etc.
+3. StringBuilder: Almacena los caracteres desencriptados y, al final, se muestra el texto desencriptado completo.
+Funcionamiento:
+• Si el archivo archivo_encriptado.txt contiene el texto "Ipmb!Nvoep", el programa lo leerá y restará 1 al valor de cada carácter, obteniendo el texto original "Hola Mundo!".
+Ejecución:
+1. Asegúrate de haber ejecutado el programa encriptador primero para que el archivo archivo_encriptado.txt exista.
+2. Luego, ejecuta este programa para leer y desencriptar el archivo.
+De esta manera, puedes restaurar el texto original a partir de la versión encriptada.
+

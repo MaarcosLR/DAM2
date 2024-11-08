@@ -1,0 +1,56 @@
+	Encriptador de archivos
+
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class SimpleEncriptador {
+    public static void main(String[] args) {
+        // Texto original que queremos encriptar
+        String textoOriginal = "Hola Mundo!";
+        
+        // Archivo donde se guardará el texto encriptado
+        String archivoEncriptado = "archivo_encriptado.txt";
+
+        try {
+            // Crear un FileWriter para escribir en el archivo
+            FileWriter writer = new FileWriter(archivoEncriptado);
+
+            // Recorrer cada carácter del texto original
+            for (int i = 0; i < textoOriginal.length(); i++) {
+                // Obtener el carácter actual
+                char caracterActual = textoOriginal.charAt(i);
+
+                // Sumamos 1 al valor alfanumérico del carácter
+                char caracterEncriptado = (char) (caracterActual + 1);
+
+                // Escribir el carácter encriptado en el archivo
+                writer.write(caracterEncriptado);
+            }
+
+            // Cerrar el FileWriter para liberar recursos
+            writer.close();
+            System.out.println("Texto encriptado y guardado en: " + archivoEncriptado);
+
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al escribir el archivo.");
+            e.printStackTrace();
+        }
+    }
+}
+
+
+Explicación:
+1. FileWriter: Se utiliza para escribir el texto encriptado en un archivo.
+2. Encriptación simple: Se recorre cada carácter de la cadena original, se le suma 1 a su valor alfanumérico (usando el tipo de dato char), y luego se escribe el carácter resultante en el archivo.
+• Por ejemplo: 'A' se convierte en 'B', 'B' se convierte en 'C', etc.
+3. Escritura en archivo: Cada carácter encriptado se escribe en el archivo archivo_encriptado.txt.
+Funcionamiento:
+• Si el texto original es "Hola Mundo!", el archivo encriptado contendrá "Ipmb!Nvoep", ya que:
+• 'H' -> 'I'
+• 'o' -> 'p'
+• 'l' -> 'm'
+• 'a' -> 'b'
+• ' ' -> '!'
+• 'M' -> 'N', etc.
+

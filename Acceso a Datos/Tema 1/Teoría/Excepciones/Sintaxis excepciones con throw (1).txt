@@ -1,0 +1,22 @@
+Excepciones con "throw"
+
+En Java, la sintaxis para lanzar una excepción usando throw es la siguiente:
+
+throw new TipoDeExcepcion("Mensaje de error opcional");
+Pasos:
+1. Usas la palabra clave throw para lanzar la excepción.
+2. Crea una instancia de la excepción que deseas lanzar, utilizando el constructor de la clase de excepción correspondiente (por ejemplo, IllegalArgumentException, IOException, etc.).
+3. Opcionalmente, puedes agregar un mensaje que describa la excepción o el error.
+Ejemplo de uso con IllegalArgumentException:
+
+public class Main {
+    public static void main(String[] args) {
+        int edad = 15;
+        
+        if (edad < 18) {
+            throw new IllegalArgumentException("Los pipiolines no pueden pasar.");
+        }
+    }
+}
+	En este ejemplo, si se intenta asignar un valor negativo a la variable edad, se lanza una excepción IllegalArgumentException con un mensaje explicativo.
+

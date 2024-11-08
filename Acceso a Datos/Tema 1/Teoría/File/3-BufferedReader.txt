@@ -1,0 +1,33 @@
+Clase BufferedReader
+
+
+• Se utiliza para leer texto de una secuencia de entrada, p ej. un archivo.
+• Los datos son almacenados en un buffer.
+• Reduce la cantidad de operaciones de E/S necesarias.
+• Es más eficiente que FileReader.
+• Se suele usar en combinación con otras clases de entrada, como FileReader.
+
+Métodos principales
+
+1. readLine(): Lee una línea completa de texto. Cuando no hay más lineas devuelve "null".
+Ejemplo:
+BufferedReader br = new BufferedReader(new FileReader("archivo.txt"));
+String linea;
+while ((linea = br.readLine()) != null) {
+    System.out.println(linea);
+}
+br.close();
+2. close(): Cierra el flujo de entrada.
+Ejemplo:
+br.close();
+3. ready(): Verifica si el lector está listo para ser leído.
+Ejemplo:
+if (br.ready()) {
+    System.out.println("El archivo está listo para ser leído.");
+}
+4. read(): Lee un solo carácter o bloque de caracteres en un arreglo, igual que el método read() de FileReader.
+Ejemplo:
+char[] buffer = new char[100];
+int charsLeidos = br.read(buffer, 0, 100);
+System.out.println(new String(buffer, 0, charsLeidos));
+

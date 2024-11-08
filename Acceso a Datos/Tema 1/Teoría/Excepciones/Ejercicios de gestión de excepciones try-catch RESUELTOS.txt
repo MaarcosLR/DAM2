@@ -1,0 +1,73 @@
+EJERCICIOS BÁSICOS DE GESTIÓN DE EXCEPCIONES
+
+Ejercicio 1: División entre cero
+Problema: Realiza un programa que intente dividir dos números enteros y capture la excepción si el divisor es cero.
+
+public class Division {
+    public static void main(String[] args) {
+        try {
+            int num1 = 10;
+            int num2 = 0;
+            int result = num1 / num2;
+            System.out.println("Resultado: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: División entre cero no permitida.");
+        }
+    }
+}
+Salida:
+Error: División entre cero no permitida.
+
+
+Ejercicio 2: Acceso fuera del índice de un array
+Problema: Crea un programa que intente acceder a un índice fuera del rango de un array y captura la excepción.
+
+public class ArrayOutOfBounds {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = {1, 2, 3};
+            System.out.println(numbers[5]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Intento de acceder a un índice fuera del rango.");
+        }
+    }
+}
+Salida:
+Error: Intento de acceder a un índice fuera del rango.
+
+
+Ejercicio 3: Conversión inválida de cadena a número
+Problema: Realiza un programa que intente convertir una cadena de texto en un número entero y captura la excepción en caso de fallo.
+
+public class NumberFormat {
+    public static void main(String[] args) {
+        try {
+            String str = "abc";
+            int number = Integer.parseInt(str);
+            System.out.println("Número: " + number);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Formato de número inválido.");
+        }
+    }
+}
+Salida:
+Error: Formato de número inválido.
+
+
+Ejercicio 4: NullPointerException
+Problema: Crea un programa que intente acceder a un método de un objeto que es null y captura la excepción.
+
+public class ArrayOutOfBounds {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = {1, 2, 3};
+            System.out.println(numbers[5]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Intento de acceder a un índice fuera del rango.");
+        }
+    }
+}
+Salida:
+Error: Objeto nulo.
+
+
