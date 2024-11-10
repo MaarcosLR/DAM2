@@ -50,9 +50,9 @@ public class Ejercicio2 extends JFrame {
 		try {
 			Configuration configuration = new Configuration();
 
-			configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-			configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-			configuration.setLanguageModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us.lm.bin");
+			configuration.setAcousticModelPath("file:libraries/resources/edu/cmu/sphinx/models/en-us/en-us");
+			configuration.setDictionaryPath("file:libraries/resources/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
+			configuration.setLanguageModelPath("file:libraries/resources/edu/cmu/sphinx/models/en-us/en-us.lm.bin");
 
 			reconocimiento = new LiveSpeechRecognizer(configuration);
 

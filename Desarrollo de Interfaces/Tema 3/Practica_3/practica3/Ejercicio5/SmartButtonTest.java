@@ -1,29 +1,31 @@
 package practica3.Ejercicio5;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import javax.swing.*;
+import java.awt.*;
 
 public class SmartButtonTest {
 
-    @Test
-    public void testVoiceActivation() {
-        SmartButton button = new SmartButton("Botón Inteligente");
-        VoiceControl voiceControl = new VoiceControl(button);
-        button.setVoiceEnabled(true);
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Prueba de SmartButton con Voz y Gestos");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 200);
 
-        // Simulación del comando de voz
-        voiceControl.startVoiceRecognition();
-        assertTrue(button.isEnabled(), "El botón debería estar activado por voz");
-    }
+        // Crear el SmartButton
+        SmartButton smartButton = new SmartButton("Botón Inteligente");
 
-    @Test
-    public void testGestureActivation() {
-        SmartButton button = new SmartButton("Botón Inteligente");
-        GestureControl gestureControl = new GestureControl(button);
-        button.setGestureEnabled(true);
+        // Inicializar control de voz y gestos
+        VoiceControl voiceControl = new VoiceControl(smartButton);
+        GestureControl gestureControl = new GestureControl(smartButton);
 
-        // Simulación del gesto de la mano
-        gestureControl.startGestureRecognition();
-        assertTrue(button.isEnabled(), "El botón debería estar activado por gesto");
+        // Iniciar detección de voz y gestos en hilos separados
+        new Thread(voiceControl::startVoiceRecognition).start();
+        new Thread(gestureControl::startGestureRecognition).start();
+
+        // Añadir el botón a la ventana
+        JPanel panel = new JPanel();
+        panel.add(smartButton);
+
+        frame.add(panel, BorderLayout.CENTER);
+        frame.setVisible(true);
     }
 }

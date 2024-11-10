@@ -2,6 +2,7 @@ package practica3.Ejercicio5;
 
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
+
 import java.io.IOException;
 
 public class VoiceControl {
@@ -12,10 +13,11 @@ public class VoiceControl {
     }
 
     public void startVoiceRecognition() {
+        // Configuración de Sphinx
         Configuration configuration = new Configuration();
-        configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-        configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-        configuration.setLanguageModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us.lm.bin");
+        configuration.setAcousticModelPath("file:libraries/resources/edu/cmu/sphinx/models/en-us/en-us");
+        configuration.setDictionaryPath("file:libraries/resources/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
+        configuration.setLanguageModelPath("file:libraries/resources/edu/cmu/sphinx/models/en-us/en-us.lm.bin");
 
         try {
             LiveSpeechRecognizer recognizer = new LiveSpeechRecognizer(configuration);
@@ -23,9 +25,9 @@ public class VoiceControl {
 
             while (true) {
                 String result = recognizer.getResult().getHypothesis();
-                if (result.equalsIgnoreCase("activar")) {
-                    button.triggerClick();  // Activa el botón
-                    System.out.println("Comando de voz: Activar");
+                if ("activar".equalsIgnoreCase(result)) {
+                    button.activateByVoice();  // Activa el botón
+                    System.out.println("Comando de voz detectado: Activar");
                 }
             }
         } catch (IOException e) {

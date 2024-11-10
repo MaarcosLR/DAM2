@@ -11,9 +11,9 @@ public class GestureControl {
 
     public GestureControl(SmartButton button) {
         this.button = button;
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        camera = new VideoCapture(0);
-        handCascade = new CascadeClassifier("path/to/haarcascade_hand.xml");
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);  // Cargar la biblioteca nativa de OpenCV
+        camera = new VideoCapture(0);  // Inicia la cámara
+        handCascade = new CascadeClassifier("libraries/haarcascade_hand.xml");  // Ruta al archivo del clasificador Haar
     }
 
     public void startGestureRecognition() {
@@ -22,8 +22,8 @@ public class GestureControl {
                 Mat frame = new Mat();
                 if (camera.read(frame)) {
                     if (detectHandGesture(frame)) {
-                        button.triggerClick();
-                        System.out.println("Gesto detectado: Activar");
+                        button.activateByGesture();
+                        System.out.println("Gesto de mano detectado: Activar");
                     }
                 }
             }
@@ -37,4 +37,3 @@ public class GestureControl {
         return hands.toArray().length > 0;
     }
 }
-
