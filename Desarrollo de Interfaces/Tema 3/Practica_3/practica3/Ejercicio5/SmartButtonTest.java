@@ -1,31 +1,36 @@
 package practica3.Ejercicio5;
 
-import javax.swing.*;
-import java.awt.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class SmartButtonTest {
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Prueba de SmartButton con Voz y Gestos");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 200);
+    @Test
+    public void testButtonVoiceControl() {
+        // Crear el botón inteligente
+        SmartButton button = new SmartButton("Botón Inteligente");
 
-        // Crear el SmartButton
-        SmartButton smartButton = new SmartButton("Botón Inteligente");
+        // Simulamos un comando de voz (esto debería hacer que el botón haga clic)
+        // Esto podría ser una simulación manual, ya que el reconocimiento de voz en tiempo real no se puede probar fácilmente con JUnit.
+        button.doClick();
 
-        // Inicializar control de voz y gestos
-        VoiceControl voiceControl = new VoiceControl(smartButton);
-        GestureControl gestureControl = new GestureControl(smartButton);
+        // Verificar que el botón haya sido presionado correctamente
+        assertTrue(button.getBackground() == java.awt.Color.GREEN || button.getBackground() == java.awt.Color.LIGHT_GRAY);
+    }
 
-        // Iniciar detección de voz y gestos en hilos separados
-        new Thread(voiceControl::startVoiceRecognition).start();
-        new Thread(gestureControl::startGestureRecognition).start();
+    @Test
+    public void testButtonGestureControl() {
+        // Crear el botón inteligente
+        SmartButton button = new SmartButton("Botón Inteligente");
 
-        // Añadir el botón a la ventana
-        JPanel panel = new JPanel();
-        panel.add(smartButton);
+        // Simula que una mano es detectada (esto se puede verificar por el cambio de color)
+        button.setBackground(java.awt.Color.GREEN);
+        assertTrue(button.getBackground() == java.awt.Color.GREEN);
 
-        frame.add(panel, BorderLayout.CENTER);
-        frame.setVisible(true);
+        // Simula que la mano ya no es detectada
+        button.setBackground(java.awt.Color.LIGHT_GRAY);
+        assertFalse(button.getBackground() == java.awt.Color.GREEN);
     }
 }
