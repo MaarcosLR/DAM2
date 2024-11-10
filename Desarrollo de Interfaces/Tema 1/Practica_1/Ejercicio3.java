@@ -16,6 +16,7 @@ public class Ejercicio3 {
         //Establecemos el Layout como GridLayout de 3 filas y 3 columnas
         botones.setLayout(new GridLayout(3, 3));
 
+        //Crear los botones
         JButton boton = new JButton("🔁");
         JButton boton2 = new JButton("⏹");
         JButton boton3 = new JButton("🔀");
@@ -25,7 +26,8 @@ public class Ejercicio3 {
         JButton boton7 = new JButton("⏪");
         JButton boton8 = new JButton("⏸");
         JButton boton9 = new JButton("⏩");
-        
+
+        //Añadir los botones
         botones.add(boton);
         botones.add(boton2);
         botones.add(boton3);
@@ -38,7 +40,8 @@ public class Ejercicio3 {
         
         //Añadir el JPanel al JFrame
         reproductor.add(botones);
-        
+
+        //Añadir un tamaño mínimo para que se abra desde el principio, si no, solo se abre lo q ocupen los botones
         reproductor.setMinimumSize(new Dimension(300,150));
         
         //Empaquetarlos para no tener que establecer una tamaño de ventana X
