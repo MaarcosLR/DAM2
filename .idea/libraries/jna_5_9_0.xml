@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="jna-5.9.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libraries/jna-5.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/slf4j-api-1.7.30.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/slf4j-simple-1.7.30.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/sphinx4-core-5prealpha.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/libraries/freetts-1.2/javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/libraries/sphinx4-master/sphinx4-core/src/main/java" />
+      <root url="file://$PROJECT_DIR$/libraries/sphinx4-master/sphinx4-core/src/test/java" />
+      <root url="file://$PROJECT_DIR$/libraries/sphinx4-master/sphinx4-samples/src/main/java" />
+    </SOURCES>
+  </library>
+</component>
