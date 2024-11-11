@@ -14,12 +14,13 @@ public class VentanaAgregarEmpleado extends JFrame {
     private JLabel lblApellidos;
     private JTextField txtApellidos;
     private JLabel lblDepartamento;
-    private JComboBox comboDepartamento;
+    private JComboBox<String> comboDepartamento;
     private JButton btnAgregar;
     private JButton btnCancelar;
-    private JCheckBoxPersonalizado checkBoxPersonalizado;
+    private JCheckBox checkBoxPersonalizado;  // Cambié el tipo a JCheckBox directamente
     private JLabel estadoComprobante;
     private ArrayList<String> listaEmpleados;
+    private String actNoAct = "";  // Variable para almacenar el estado
 
     public VentanaAgregarEmpleado(ArrayList<String> listaEmpleados) {
         this.listaEmpleados = listaEmpleados; // Recibe la lista de empleados
@@ -44,20 +45,23 @@ public class VentanaAgregarEmpleado extends JFrame {
         lblApellidos = new JLabel("Apellidos: ");
         txtApellidos = new JTextField(10);
         lblDepartamento = new JLabel("Departamento: ");
-        comboDepartamento = new JComboBox();
+        comboDepartamento = new JComboBox<>();
         comboDepartamento.addItem(null);
         comboDepartamento.addItem("Ventas");
         comboDepartamento.addItem("IT");
         comboDepartamento.addItem("Recursos Humanos");
-        checkBoxPersonalizado = new JCheckBoxPersonalizado();
-        checkBoxPersonalizado.setBackground(Color.red);
+        checkBoxPersonalizado = new JCheckBox("Activo");
         btnAgregar = new JButton("Agregar");
         btnCancelar = new JButton("Cancelar");
         estadoComprobante = new JLabel("");
 
-        btnAgregar.setEnabled(false);
+        // Inicialización del checkbox
+        checkBoxPersonalizado.setBackground(Color.red);  // Esto ya lo puede manejar como un JCheckBox
+        actNoAct = checkBoxPersonalizado.isSelected() ? "Activo" : "No activo";  // Definir el estado inicial
 
-        // Añadir botones al frame
+        btnAgregar.setEnabled(false);  // El botón estará deshabilitado inicialmente
+
+        // Añadir componentes al panel
         panelComponentes.add(lblNombre);
         panelComponentes.add(txtNombre);
         panelComponentes.add(lblApellidos);
@@ -76,19 +80,6 @@ public class VentanaAgregarEmpleado extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new VentanaPrincipal();
-            }
-        });
-
-        // ActionListener para agregar los empleados
-        btnAgregar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                comprobarCampos();
-                agregarEmpleado();
-                JOptionPane.showMessageDialog(null, "Empleado Agregado");
-                dispose();
-                new VentanaPrincipal(); // Vuelve a la ventana principal después de agregar
             }
         });
 
@@ -139,16 +130,28 @@ public class VentanaAgregarEmpleado extends JFrame {
             }
         });
 
-        // ActionListener para cambiar el color del checkboxpersonalizado
+        // ActionListener para cambiar el color del checkboxpersonalizado y actualizar el estado
         checkBoxPersonalizado.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (checkBoxPersonalizado.isSelected()) {
                     checkBoxPersonalizado.setBackground(Color.green);
+                    actNoAct = "Activo";  // Si está seleccionado
                 } else {
                     checkBoxPersonalizado.setBackground(Color.red);
+                    actNoAct = "No activo";  // Si no está seleccionado
                 }
+            }
+        });
+
+        // ActionListener para agregar los empleados
+        btnAgregar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                comprobarCampos();
+                agregarEmpleado();
+                JOptionPane.showMessageDialog(null, "Empleado Agregado");
+                dispose();
             }
         });
 
@@ -160,13 +163,14 @@ public class VentanaAgregarEmpleado extends JFrame {
         if (txtNombre.getText().trim().isEmpty()) {
             estadoComprobante.setText("El nombre es obligatorio");
             return false;
-        } else if(txtApellidos.getText().trim().isEmpty()){
+        } else if(txtApellidos.getText().trim().isEmpty()) {
             estadoComprobante.setText("Los apellidos son obligatorios");
             return false;
         } else if (comboDepartamento.getSelectedItem() == null) {
             estadoComprobante.setText("El departamento es obligatorio");
             return false;
         } else {
+            estadoComprobante.setText("");
             btnAgregar.setEnabled(true); // Si todo está correcto, habilita el botón de registro
             return true;
         }
@@ -174,7 +178,9 @@ public class VentanaAgregarEmpleado extends JFrame {
 
     // Añado la información al ArrayList
     private void agregarEmpleado() {
-        String departamento = comboDepartamento.getSelectedItem().toString();
-        listaEmpleados.add(txtNombre.getText() + " " + txtApellidos.getText() + " - " + departamento);
+        if (comprobarCampos()) {
+            String departamento = comboDepartamento.getSelectedItem().toString();
+            listaEmpleados.add(txtNombre.getText() + " " + txtApellidos.getText() + " - " + departamento + " - " + actNoAct);
+        }
     }
 }

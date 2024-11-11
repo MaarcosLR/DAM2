@@ -37,7 +37,7 @@ public class VentanaPrincipal extends JFrame {
         add(panelBotones);
 
         // Creación de botones
-        addEmpleado = new JButton("Add Empleado");
+        addEmpleado = new JButton("Agregar Empleado");
         viewEmpleados = new JButton("Ver Empleados");
         salir = new JButton("Salir");
 
@@ -50,7 +50,6 @@ public class VentanaPrincipal extends JFrame {
         addEmpleado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 new VentanaAgregarEmpleado(listaEmpleados);
             }
         });

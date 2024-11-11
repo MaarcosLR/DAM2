@@ -9,7 +9,7 @@ public class VentanaListaEmpleados extends JFrame {
     public VentanaListaEmpleados(ArrayList<String> listaEmpleados) {
         // Configurar el frame
         setTitle("Lista de empleados");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(500, 500);
         setLocationRelativeTo(null);
 

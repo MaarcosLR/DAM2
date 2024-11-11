@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class CheckBoxTest {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Prueba de Botón Redondo");
+        JFrame frame = new JFrame("Prueba de CheckBox");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 300);
 
