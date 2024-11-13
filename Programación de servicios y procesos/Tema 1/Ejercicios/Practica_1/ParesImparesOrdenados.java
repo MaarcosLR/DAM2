@@ -1,3 +1,5 @@
+package Practica_1;
+
 public class ParesImparesOrdenados extends Thread { // Se define la clase que extiende de Thread
 
     // Creo los hilos

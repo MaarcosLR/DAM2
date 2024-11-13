@@ -1,4 +1,6 @@
-public class CochesOrdenados {
+package Practica_1;
+
+public class CochesDesordenados {
     public static void main(String[] args) throws InterruptedException {
         String[] pilotos = {"Hamilton", "Vettel", "Raikkonen", "Alonso", "Sainz Jr", "Bottas", "Vandoorne"};
 
@@ -25,7 +27,6 @@ public class CochesOrdenados {
         for (int i = 0; i < pilotos.length; i++) {
             hilo[i] = new Thread(new Coche(pilotos[i]));
             hilo[i].start();
-            hilo[i].join();  // Esperar a que cada hilo termine antes de pasar al siguiente
         }
     }
 }

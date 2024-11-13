@@ -1,3 +1,5 @@
+package Practica_1;
+
 public class CienHilosOrdenados extends Thread {
     private int numero; 
 
