@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Ejercicio1 {
+public class UsoIsAlive {
 
     public static void main(String[] args) {
         try {
@@ -22,7 +22,7 @@ public class Ejercicio1 {
             // Monitoreo del estado del proceso
             while (proceso.isAlive()) {
                 System.out.println("El proceso sigue en ejecución...");
-                Thread.sleep(1000); // Espera 1 segundo antes de verificar de nuevo
+                Thread.sleep(3000); // Espera 3 segundo antes de verificar de nuevo
             }
 
             // Finalizar el monitoreo cuando el proceso termina
