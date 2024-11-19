@@ -1,7 +1,7 @@
-package testjar;
+package testjjar;
 
 import javax.swing.*;
-import EjComponentes.RoundButton; // Importar desde el .jar
+import ejcomponente.RoundButton; // Importar desde el .jar
 
 public class TestJar {
  public static void main(String[] args) {
