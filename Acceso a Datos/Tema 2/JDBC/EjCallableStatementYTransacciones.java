@@ -10,8 +10,8 @@ public class EjCallableStatementYTransacciones {
         Connection con = null;
 
         // Datos del nuevo empleado
-        String nombreEmpleado = "Juan Pérez";
-        String departamentoIdStr = "1"; // Cambiar a un valor válido para pruebas
+        String nombreEmpleado = "Marcelo Pérez";
+        int departamentoIdStr = 1; // Cambiar a un valor válido para pruebas
         double salario = 3000.50;
 
         // Validaciones
@@ -25,13 +25,13 @@ public class EjCallableStatementYTransacciones {
             return;
         }
 
-        if (!esNumeroEntero(departamentoIdStr)) {
+        if (!esNumeroEntero(String.valueOf(departamentoIdStr))) {
             System.err.println("Error: El ID del departamento no puede contener letras.");
             return;
         }
 
         // Convertir departamentoIdStr a entero después de la validación
-        int departamentoId = Integer.parseInt(departamentoIdStr);
+        int departamentoId = Integer.parseInt(String.valueOf(departamentoIdStr));
 
         try {
             // Establecer conexión con la base de datos
