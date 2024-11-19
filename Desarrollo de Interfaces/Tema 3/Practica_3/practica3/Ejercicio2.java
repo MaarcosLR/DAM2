@@ -13,7 +13,7 @@ public class Ejercicio2 extends JFrame {
 
 	public Ejercicio2() {
 
-		//Configuro el JFrame del Ejercicio2
+		//Configuro el JFrame del practica1.Ejercicio2
 		setTitle("Ejercicio 2");
 		setSize(600, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

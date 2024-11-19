@@ -1,39 +1,39 @@
 Clase File
 
-	La clase File proporciona información acerca de los archivos, de sus atributos, de los directorios, etc. 
+	La clase File proporciona informaciï¿½n acerca de los archivos, de sus atributos, de los directorios, etc. 
 
 1. Constructores
-• File(String path)
-• File(String path, String name)
-• File(File dir, String name)
-Nota: El parámetro path indica el camino hacia el directorio donde se encuentra el archivo, y name indica el nombre del archivo.
+ï¿½ File(String path)
+ï¿½ File(String path, String name)
+ï¿½ File(File dir, String name)
+Nota: El parï¿½metro path indica el camino hacia el directorio donde se encuentra el archivo, y name indica el nombre del archivo.
 
-2.  Métodos más importantes que describe esta clase son los siguientes:
+2.  Mï¿½todos mï¿½s importantes que describe esta clase son los siguientes:
 
-• String getName()
-• String getPath()
-• String getAbsolutePath()
-• boolean exists()
-• boolean canWrite()
-• boolean canRead
-• boolean isFile()
-• boolean isDirectory()
-• boolean isAbsolute()
-• long lastModified()
-• long length()
-• boolean mkdir()
-• boolean mkdirs()
-• boolean renameTo(File dest);
-• boolean delete()
-• String[] list()
-• String[] list(FilenameFilter filter)
+ï¿½ String getName()
+ï¿½ String getPath()
+ï¿½ String getAbsolutePath()
+ï¿½ boolean exists()
+ï¿½ boolean canWrite()
+ï¿½ boolean canRead
+ï¿½ boolean isFile()
+ï¿½ boolean isDirectory()
+ï¿½ boolean isAbsolute()
+ï¿½ long lastModified()
+ï¿½ long length()
+ï¿½ boolean mkdir()
+ï¿½ boolean mkdirs()
+ï¿½ boolean renameTo(File dest);
+ï¿½ boolean delete()
+ï¿½ String[] list()
+ï¿½ String[] list(FilenameFilter filter)
 
 
 Ejemplo: Comprueba si el archivo "MisSecretos.txt" existe en la ruta "c:/"
 
 import java.io.File;
 
-public class Main {
+public class ejemplo.Main {
     public static void main(String[] args) {
         // Crear un objeto File con la ruta de un archivo
         File archivo = new File("C:/MisSecretos.jpg");

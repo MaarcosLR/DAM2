@@ -592,7 +592,7 @@ public class BatchModeRecognizer implements Configurable {
 
 
     /**
-     * Main method of this BatchDecoder.
+     * ejemplo.Main method of this BatchDecoder.
      *
      * @param argv argv[0] : config.xml argv[1] : a file listing all the audio files to decode
      */

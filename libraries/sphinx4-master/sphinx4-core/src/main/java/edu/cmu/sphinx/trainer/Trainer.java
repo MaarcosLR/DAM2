@@ -138,7 +138,7 @@ public class Trainer implements Configurable {
 
 
     /**
-     * Main method of this Trainer.
+     * ejemplo.Main method of this Trainer.
      *
      * @param argv argv[0] : XML configuration file
      */

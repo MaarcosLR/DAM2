@@ -214,7 +214,7 @@ jsapi.exe from the lib directory.
 		               TTSServer.class"/>
             <manifest>
                 <attribute name="Built-By" value="${user.name}" />
-                <attribute name="Main-Class" value="EmacspeakServer" />
+                <attribute name="ejemplo.Main-Class" value="EmacspeakServer" />
                 <attribute name="Class-Path"
                     value="../lib/freetts.jar ../lib/freetts-jsapi10.jar ../lib/jsapi.jar" />
                 <section name="common">
@@ -246,7 +246,7 @@ jsapi.exe from the lib directory.
 	     compress="true">
             <manifest>
                 <attribute name="Built-By" value="${user.name}" />
-                <attribute name="Main-Class" value="HelloWorld" />
+                <attribute name="ejemplo.Main-Class" value="HelloWorld" />
                 <attribute name="Class-Path"
                     value="../lib/freetts.jar ../lib/freetts-jsapi10.jar ../lib/jsapi.jar" />
                 <section name="common">
@@ -280,7 +280,7 @@ jsapi.exe from the lib directory.
 	             includes="TimeUtils.class"/>
             <manifest>
                 <attribute name="Built-By" value="${user.name}" />
-                <attribute name="Main-Class" value="JTime" />
+                <attribute name="ejemplo.Main-Class" value="JTime" />
                 <attribute name="Class-Path"
                     value="../lib/freetts.jar ../lib/freetts-jsapi10.jar ../lib/jsapi.jar" />
                 <section name="common">
@@ -312,7 +312,7 @@ jsapi.exe from the lib directory.
 	     compress="true">
             <manifest>
                 <attribute name="Built-By" value="${user.name}" />
-                <attribute name="Main-Class" value="MixedVoices" />
+                <attribute name="ejemplo.Main-Class" value="MixedVoices" />
                 <attribute name="Class-Path"
                     value="../lib/freetts.jar ../lib/freetts-jsapi10.jar ../lib/jsapi.jar" />
                 <section name="common">
@@ -344,7 +344,7 @@ jsapi.exe from the lib directory.
 	     compress="true">
             <manifest>
                 <attribute name="Built-By" value="${user.name}" />
-                <attribute name="Main-Class" value="Player" />
+                <attribute name="ejemplo.Main-Class" value="Player" />
                 <attribute name="Class-Path"
                     value="../lib/freetts.jar ../lib/freetts-jsapi10.jar ../lib/jsapi.jar" />
                 <section name="common">
@@ -379,7 +379,7 @@ jsapi.exe from the lib directory.
                
             <manifest>
                 <attribute name="Built-By" value="${user.name}" />
-                <attribute name="Main-Class" value="JSAPIClock" />
+                <attribute name="ejemplo.Main-Class" value="JSAPIClock" />
                 <attribute name="Class-Path"
                     value="../lib/freetts.jar ../lib/freetts-jsapi10.jar ../lib/jsapi.jar" />
                 <section name="common">
@@ -538,7 +538,7 @@ jsapi.exe from the lib directory.
             <fileset dir="${demo_classes_dir}/freetts/Emacspeak"/>
             <fileset dir="${build_dir}/tmp"/>
             <manifest>
-	        <attribute name="Main-Class"
+	        <attribute name="ejemplo.Main-Class"
 			   value="FreeTTSEmacspeakServer"/>
             </manifest>
         </jar>

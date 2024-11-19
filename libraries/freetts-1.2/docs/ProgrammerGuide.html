@@ -1276,7 +1276,7 @@ VoiceDirectory.  The package probably contains data files as well as other
 java classes that implement the voices provided.  The jarfile Manifest
 must also include three entries:</P>
 <OL>
-    <LI><P>&quot;Main-Class&quot; which will be the VoiceDirectory class,
+    <LI><P>&quot;ejemplo.Main-Class&quot; which will be the VoiceDirectory class,
         and prints out information about the voices provided</P>
     <LI><P>&quot;FreeTTSVoiceDefinition: true&quot;, which informs
         FreeTTS that this jarfile is a voice package</P>
@@ -1327,7 +1327,7 @@ and has the &quot;FreeTTSVoiceDefinition: true&quot; definition
 in its Manifest, then it is assumed to be a voice package.  The file
 is then loaded along with all dependencies listed in the
 &quot;Class-Path:&quot; definition.  Whatever class is listed as the
-&quot;Main-Class:&quot; is assumed to be the voice directory.  There
+&quot;ejemplo.Main-Class:&quot; is assumed to be the voice directory.  There
 are two ways to specify which filesystem directory to look in:</P>
 <OL>
     <LI><P>By default, FreeTTS will look in the same directory as

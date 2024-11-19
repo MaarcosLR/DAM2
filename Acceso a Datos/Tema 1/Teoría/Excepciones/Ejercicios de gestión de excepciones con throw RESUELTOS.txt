@@ -1,7 +1,7 @@
-EJERCICIOS BÁSICOS DE GESTIÓN DE EXCEPCIONES
+EJERCICIOS Bï¿½SICOS DE GESTIï¿½N DE EXCEPCIONES
 
 Ejercicio 1:
-	Crea un método llamado dividir que tome dos parámetros, numerador y denominador, y lance una excepción de tipo ArithmeticException si el denominador es igual a cero.
+	Crea un mï¿½todo llamado dividir que tome dos parï¿½metros, numerador y denominador, y lance una excepciï¿½n de tipo ArithmeticException si el denominador es igual a cero.
 
 public class Division {
     public static double dividir(int numerador, int denominador) {
@@ -12,11 +12,11 @@ public class Division {
     }
 
     public static void main(String[] args) {
-        System.out.println(dividir(10, 0)); // Esto lanzará una excepción
+        System.out.println(dividir(10, 0)); // Esto lanzarï¿½ una excepciï¿½n
     }
 }
 Ejercicio 2:
-	Desarrolla un método llamado verificarEdad que reciba un entero representando la edad de una persona. Si la edad es menor de 18 años, lanza una excepción personalizada MenorDeEdadException.
+	Desarrolla un mï¿½todo llamado verificarEdad que reciba un entero representando la edad de una persona. Si la edad es menor de 18 aï¿½os, lanza una excepciï¿½n personalizada MenorDeEdadException.
 
 class MenorDeEdadException extends Exception {
     public MenorDeEdadException(String mensaje) {
@@ -42,66 +42,66 @@ public class VerificarEdad {
     }
 }
 Ejercicio 3:
-	Implementa una clase llamada CuentaBancaria con un método retirarDinero que tome un monto como parámetro. Si el monto es mayor que el saldo actual de la cuenta, lanza una excepción SaldoInsuficienteException.
+	Implementa una clase llamada Excepciones.CuentaBancaria con un mï¿½todo retirarDinero que tome un monto como parï¿½metro. Si el monto es mayor que el saldo actual de la cuenta, lanza una excepciï¿½n Excepciones.SaldoInsuficienteException.
 
-class SaldoInsuficienteException extends Exception {
-    public SaldoInsuficienteException(String mensaje) {
+class Excepciones.SaldoInsuficienteException extends Exception {
+    public Excepciones.SaldoInsuficienteException(String mensaje) {
         super(mensaje);
     }
 }
 
-public class CuentaBancaria {
+public class Excepciones.CuentaBancaria {
     private double saldo;
 
-    public CuentaBancaria(double saldoInicial) {
+    public Excepciones.CuentaBancaria(double saldoInicial) {
         this.saldo = saldoInicial;
     }
 
-    public void retirarDinero(double monto) throws SaldoInsuficienteException {
+    public void retirarDinero(double monto) throws Excepciones.SaldoInsuficienteException {
         if (monto > saldo) {
-            throw new SaldoInsuficienteException("Saldo insuficiente para retirar el monto solicitado");
+            throw new Excepciones.SaldoInsuficienteException("Saldo insuficiente para retirar el monto solicitado");
         }
         saldo -= monto;
         System.out.println("Retiro exitoso. Saldo restante: " + saldo);
     }
 
     public static void main(String[] args) {
-        CuentaBancaria cuenta = new CuentaBancaria(100);
+        Excepciones.CuentaBancaria cuenta = new Excepciones.CuentaBancaria(100);
         try {
             cuenta.retirarDinero(150);
-        } catch (SaldoInsuficienteException e) {
+        } catch (Excepciones.SaldoInsuficienteException e) {
             System.out.println(e.getMessage());
         }
     }
 }
 Ejercicio 4:
-	Crea un método llamado verificarContraseña que acepte una cadena de texto como parámetro y lance una excepción ContraseñaInvalidaException si la contraseña no contiene al menos 8 caracteres o no tiene algún número.
+	Crea un mï¿½todo llamado verificarContraseï¿½a que acepte una cadena de texto como parï¿½metro y lance una excepciï¿½n Contraseï¿½aInvalidaException si la contraseï¿½a no contiene al menos 8 caracteres o no tiene algï¿½n nï¿½mero.
 
-class ContraseñaInvalidaException extends Exception {
-    public ContraseñaInvalidaException(String mensaje) {
+class Contraseï¿½aInvalidaException extends Exception {
+    public Contraseï¿½aInvalidaException(String mensaje) {
         super(mensaje);
     }
 }
 
-public class VerificarContraseña {
-    public static void verificarContraseña(String contraseña) throws ContraseñaInvalidaException {
-        if (contraseña.length() < 8 || !contraseña.matches(".*\\d.*")) {
-            throw new ContraseñaInvalidaException("La contraseña es inválida. Debe tener al menos 8 caracteres y contener un número.");
+public class VerificarContraseï¿½a {
+    public static void verificarContraseï¿½a(String contraseï¿½a) throws Contraseï¿½aInvalidaException {
+        if (contraseï¿½a.length() < 8 || !contraseï¿½a.matches(".*\\d.*")) {
+            throw new Contraseï¿½aInvalidaException("La contraseï¿½a es invï¿½lida. Debe tener al menos 8 caracteres y contener un nï¿½mero.");
         } else {
-            System.out.println("Contraseña válida");
+            System.out.println("Contraseï¿½a vï¿½lida");
         }
     }
 
     public static void main(String[] args) {
         try {
-            verificarContraseña("abcdef");
-        } catch (ContraseñaInvalidaException e) {
+            verificarContraseï¿½a("abcdef");
+        } catch (Contraseï¿½aInvalidaException e) {
             System.out.println(e.getMessage());
         }
     }
 }
 Ejercicio 5:
-	Desarrolla un método llamado asignarNota que acepte una nota como parámetro y lance una excepción NotaInvalidaException si la nota no está en el rango de 0 a 10.
+	Desarrolla un mï¿½todo llamado asignarNota que acepte una nota como parï¿½metro y lance una excepciï¿½n NotaInvalidaException si la nota no estï¿½ en el rango de 0 a 10.
 
 class NotaInvalidaException extends Exception {
     public NotaInvalidaException(String mensaje) {

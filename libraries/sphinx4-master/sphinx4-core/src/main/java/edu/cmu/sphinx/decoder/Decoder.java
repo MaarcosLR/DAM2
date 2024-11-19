@@ -38,7 +38,7 @@ public class Decoder extends AbstractDecoder {
     }
 
     /**
-     * Main decoder
+     * ejemplo.Main decoder
      *
      * @param searchManager search manager to configure search space
      * @param fireNonFinalResults should we notify about non-final results

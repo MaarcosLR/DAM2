@@ -30,7 +30,7 @@ import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 public class LatticeCompTest {
 
     /**
-     * Main method for running the LatticeCompTest demo.
+     * ejemplo.Main method for running the LatticeCompTest demo.
      * 
      * @throws IOException
      * @throws UnsupportedAudioFileException

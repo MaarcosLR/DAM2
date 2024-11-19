@@ -1,45 +1,45 @@
 Excepciones con "try/catch" y "throw"
 
-Sintaxis básica con try/catch y throw:
+Sintaxis bï¿½sica con try/catch y throw:
 
-public class Main {
+public class ejemplo.Main {
     public static void main(String[] args) {
         try {
-            metodoQueLanzaExcepcion(); // Se llama a un método que puede lanzar una excepción
+            metodoQueLanzaExcepcion(); // Se llama a un mï¿½todo que puede lanzar una excepciï¿½n
         } catch (IllegalArgumentException e) {
-            System.out.println("Excepción capturada: " + e.getMessage());
+            System.out.println("Excepciï¿½n capturada: " + e.getMessage());
         }
     }
 
     public static void metodoQueLanzaExcepcion() throws IllegalArgumentException {
-        throw new IllegalArgumentException("Se ha lanzado una excepción de tipo IllegalArgumentException");
+        throw new IllegalArgumentException("Se ha lanzado una excepciï¿½n de tipo IllegalArgumentException");
     }
 }
-Descripción:
-1. throw: Se utiliza dentro de un método o bloque de código para lanzar una excepción explícita.
-2. try: Bloque que contiene el código que podría lanzar una excepción.
-3. catch: Bloque que maneja la excepción lanzada en el bloque try.
-4. throws: Se usa en la declaración del método para indicar que este método puede lanzar una excepción específica.
-Ejemplo de uso con explicación:
+Descripciï¿½n:
+1. throw: Se utiliza dentro de un mï¿½todo o bloque de cï¿½digo para lanzar una excepciï¿½n explï¿½cita.
+2. try: Bloque que contiene el cï¿½digo que podrï¿½a lanzar una excepciï¿½n.
+3. catch: Bloque que maneja la excepciï¿½n lanzada en el bloque try.
+4. throws: Se usa en la declaraciï¿½n del mï¿½todo para indicar que este mï¿½todo puede lanzar una excepciï¿½n especï¿½fica.
+Ejemplo de uso con explicaciï¿½n:
 
-public class Main {
+public class ejemplo.Main {
     public static void main(String[] args) {
         try {
-            verificarEdad(15); // Intenta verificar la edad, pero no cumple la condición
+            verificarEdad(15); // Intenta verificar la edad, pero no cumple la condiciï¿½n
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage()); // Captura la excepción y muestra el mensaje de error
+            System.out.println("Error: " + e.getMessage()); // Captura la excepciï¿½n y muestra el mensaje de error
         }
     }
 
     public static void verificarEdad(int edad) throws Exception {
         if (edad < 18) {
-            throw new Exception("La edad debe ser mayor o igual a 18"); // Lanza la excepción si la edad es menor
+            throw new Exception("La edad debe ser mayor o igual a 18"); // Lanza la excepciï¿½n si la edad es menor
         }
     }
 }
-Explicación del ejemplo:
-1. El método verificarEdad(int edad) comprueba si la edad es mayor o igual a 18. Si no lo es, lanza una excepción con throw.
-2. En el método main, el bloque try llama a verificarEdad(15), lo que provocará que se lance la excepción.
-3. La excepción es capturada en el bloque catch, y se imprime el mensaje de error.
-	Este patrón es útil para situaciones en las que quieres lanzar una excepción personalizada y luego capturarla en un bloque try/catch para manejarla adecuadamente.
+Explicaciï¿½n del ejemplo:
+1. El mï¿½todo verificarEdad(int edad) comprueba si la edad es mayor o igual a 18. Si no lo es, lanza una excepciï¿½n con throw.
+2. En el mï¿½todo main, el bloque try llama a verificarEdad(15), lo que provocarï¿½ que se lance la excepciï¿½n.
+3. La excepciï¿½n es capturada en el bloque catch, y se imprime el mensaje de error.
+	Este patrï¿½n es ï¿½til para situaciones en las que quieres lanzar una excepciï¿½n personalizada y luego capturarla en un bloque try/catch para manejarla adecuadamente.
 

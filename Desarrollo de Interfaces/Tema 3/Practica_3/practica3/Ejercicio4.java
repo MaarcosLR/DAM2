@@ -9,7 +9,7 @@
 //import java.awt.event.WindowAdapter;
 //import java.awt.event.WindowEvent;
 //
-//public class Ejercicio4 extends JFrame {
+//public class practica1.Ejercicio4 extends JFrame {
 //
 //    private ARController arController;
 //    private int markerID;

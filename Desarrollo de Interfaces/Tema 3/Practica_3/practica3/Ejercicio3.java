@@ -9,12 +9,12 @@
 //import java.awt.image.BufferedImage;
 //import java.awt.image.DataBufferByte;
 //
-//public class Ejercicio3 extends JFrame {
+//public class practica1.Ejercicio3 extends JFrame {
 //    private JLabel imageLabel;
 //    private VideoCapture camera;
 //    private CascadeClassifier handCascade;
 //
-//    public Ejercicio3() {
+//    public practica1.Ejercicio3() {
 //        System.loadLibrary(Core.NATIVE_LIBRARY_NAME); // Cargar la biblioteca de OpenCV
 //        camera = new VideoCapture(0); // Iniciar la cámara
 //
@@ -69,6 +69,6 @@
 //    }
 //
 //    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(Ejercicio3::new);
+//        SwingUtilities.invokeLater(practica1.Ejercicio3::new);
 //    }
 //}

@@ -1,7 +1,7 @@
 
 
-Ejercicio1: Propagar excepciones con throws
-Problema: Crea un programa que lance una excepción personalizada si un número dado es negativo.
+practica1.Ejercicio1: Propagar excepciones con throws
+Problema: Crea un programa que lance una excepciï¿½n personalizada si un nï¿½mero dado es negativo.
 
 public class CustomExceptionTest {
     public static void main(String[] args) {
@@ -14,13 +14,13 @@ public class CustomExceptionTest {
 
     public static void checkNumber(int num) throws IllegalArgumentException {
         if (num < 0) {
-            throw new IllegalArgumentException("Error: Número negativo no permitido.");
+            throw new IllegalArgumentException("Error: Nï¿½mero negativo no permitido.");
         }
-        System.out.println("El número es: " + num);
+        System.out.println("El nï¿½mero es: " + num);
     }
 }
 Salida:
-Error: Número negativo no permitido.
+Error: Nï¿½mero negativo no permitido.
 
 
 
@@ -28,29 +28,29 @@ Error: Número negativo no permitido.
 Ejercicio 2: Propagar excepciones con throws, no hay stock
 Problema: Crea un programa que lance una excepcion en java al intentar comprar un articulo cuyo stock es cero
 
-// Clase personalizada para la excepción de stock agotado
+// Clase personalizada para la excepciï¿½n de stock agotado
 class StockAgotadoException extends Exception {
     public StockAgotadoException(String mensaje) {
         super(mensaje);
     }
 }
 
-// Clase Articulo con atributos y métodos
-class Articulo {
+// Clase ejemplo.Articulo con atributos y mï¿½todos
+class ejemplo.Articulo {
     private String nombre;
     private int stock;
 
-    public Articulo(String nombre, int stock) {
+    public ejemplo.Articulo(String nombre, int stock) {
         this.nombre = nombre;
         this.stock = stock;
     }
 
     public void comprar() throws StockAgotadoException {
         if (stock == 0) {
-            throw new StockAgotadoException("No se puede comprar el artículo '" + nombre + "' porque no hay stock.");
+            throw new StockAgotadoException("No se puede comprar el artï¿½culo '" + nombre + "' porque no hay stock.");
         } else {
             stock--;
-            System.out.println("Has comprado el artículo: " + nombre);
+            System.out.println("Has comprado el artï¿½culo: " + nombre);
         }
     }
 
@@ -59,9 +59,9 @@ class Articulo {
     }
 }
 
-public class Main {
+public class ejemplo.Main {
     public static void main(String[] args) {
-        Articulo articulo = new Articulo("Portátil", 0); // stock inicial 0
+        ejemplo.Articulo articulo = new ejemplo.Articulo("Portï¿½til", 0); // stock inicial 0
 
         try {
             articulo.comprar();
@@ -74,9 +74,9 @@ public class Main {
 
 
 Ejercicio 3: Propagar excepciones con throws, valor desconocido
-Problema: Crea un programa que lance una excepción cuando ocurra una asignación de un valor que no este en una lista de valores previamente definidos.
+Problema: Crea un programa que lance una excepciï¿½n cuando ocurra una asignaciï¿½n de un valor que no este en una lista de valores previamente definidos.
 
-// Excepción personalizada para valor fuera de la lista permitida
+// Excepciï¿½n personalizada para valor fuera de la lista permitida
 class ValorNoPermitidoException extends Exception {
     public ValorNoPermitidoException(String mensaje) {
         super(mensaje);
@@ -88,11 +88,11 @@ class AsignadorDeValores {
     private String valor;
     private static final String[] VALORES_PERMITIDOS = {"rojo", "azul", "verde", "amarillo"};
 
-    // Método para asignar un valor si está en la lista predefinida
+    // Mï¿½todo para asignar un valor si estï¿½ en la lista predefinida
     public void setValor(String valor) throws ValorNoPermitidoException {
         boolean valorValido = false;
 
-        // Verificamos si el valor está en la lista de valores permitidos
+        // Verificamos si el valor estï¿½ en la lista de valores permitidos
         for (String v : VALORES_PERMITIDOS) {
             if (v.equals(valor)) {
                 valorValido = true;
@@ -101,7 +101,7 @@ class AsignadorDeValores {
         }
 
         if (!valorValido) {
-            throw new ValorNoPermitidoException("El valor '" + valor + "' no está en la lista de valores permitidos.");
+            throw new ValorNoPermitidoException("El valor '" + valor + "' no estï¿½ en la lista de valores permitidos.");
         } else {
             this.valor = valor;
         }
@@ -112,44 +112,44 @@ class AsignadorDeValores {
     }
 }
 
-public class Main {
+public class ejemplo.Main {
     public static void main(String[] args) {
         AsignadorDeValores asignador = new AsignadorDeValores();
 
         try {
-            asignador.setValor("naranja"); // Intentamos asignar un valor que no está en la lista permitida
+            asignador.setValor("naranja"); // Intentamos asignar un valor que no estï¿½ en la lista permitida
         } catch (ValorNoPermitidoException e) {
-            System.out.println(e.getMessage()); // Capturamos y mostramos la excepción
+            System.out.println(e.getMessage()); // Capturamos y mostramos la excepciï¿½n
         }
     }
 }
 
-Ejercicio 4: Sistema de gestión de banco con múltiples excepciones
-	Crea un sistema de gestión bancaria en el que se realicen las siguientes operaciones:
+Ejercicio 4: Sistema de gestiï¿½n de banco con mï¿½ltiples excepciones
+	Crea un sistema de gestiï¿½n bancaria en el que se realicen las siguientes operaciones:
 1. Crear una cuenta bancaria con un saldo inicial.
-2. Realizar depósitos en la cuenta.
+2. Realizar depï¿½sitos en la cuenta.
 3. Realizar retiros, verificando que haya suficiente saldo.
-4. Capturar errores en la entrada de datos, como la introducción de valores no válidos para las operaciones.
-En el programa, se deben capturar múltiples excepciones como:
-• NumberFormatException al ingresar un valor no numérico.
-• IllegalArgumentException para verificar si un valor es negativo o nulo.
-• InsufficientFundsException (excepción personalizada) cuando no hay fondos suficientes para realizar un retiro.
-Solución:
-1. Excepción personalizada InsufficientFundsException:
+4. Capturar errores en la entrada de datos, como la introducciï¿½n de valores no vï¿½lidos para las operaciones.
+En el programa, se deben capturar mï¿½ltiples excepciones como:
+ï¿½ NumberFormatException al ingresar un valor no numï¿½rico.
+ï¿½ IllegalArgumentException para verificar si un valor es negativo o nulo.
+ï¿½ InsufficientFundsException (excepciï¿½n personalizada) cuando no hay fondos suficientes para realizar un retiro.
+Soluciï¿½n:
+1. Excepciï¿½n personalizada InsufficientFundsException:
 java
-Copiar código
+Copiar cï¿½digo
 class InsufficientFundsException extends Exception {
     public InsufficientFundsException(String message) {
         super(message);
     }
 }
-2. Clase CuentaBancaria:
+2. Clase Excepciones.CuentaBancaria:
 java
-Copiar código
-public class CuentaBancaria {
+Copiar cï¿½digo
+public class Excepciones.CuentaBancaria {
     private double saldo;
 
-    public CuentaBancaria(double saldoInicial) {
+    public Excepciones.CuentaBancaria(double saldoInicial) {
         if (saldoInicial < 0) {
             throw new IllegalArgumentException("El saldo inicial no puede ser negativo.");
         }
@@ -161,7 +161,7 @@ public class CuentaBancaria {
             throw new IllegalArgumentException("La cantidad a depositar debe ser mayor que cero.");
         }
         saldo += cantidad;
-        System.out.println("Depósito realizado. Saldo actual: " + saldo);
+        System.out.println("Depï¿½sito realizado. Saldo actual: " + saldo);
     }
 
     public void retirar(double cantidad) throws InsufficientFundsException {
@@ -181,20 +181,20 @@ public class CuentaBancaria {
 }
 3. Clase principal Banco:
 java
-Copiar código
+Copiar cï¿½digo
 import java.util.Scanner;
 
 public class Banco {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        CuentaBancaria cuenta = null;
+        Excepciones.CuentaBancaria cuenta = null;
 
         try {
             System.out.print("Ingrese el saldo inicial de la cuenta: ");
             double saldoInicial = Double.parseDouble(scanner.nextLine());
-            cuenta = new CuentaBancaria(saldoInicial);
+            cuenta = new Excepciones.CuentaBancaria(saldoInicial);
         } catch (NumberFormatException e) {
-            System.out.println("Error: El saldo inicial debe ser un número.");
+            System.out.println("Error: El saldo inicial debe ser un nï¿½mero.");
             return;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -207,7 +207,7 @@ public class Banco {
             System.out.println("2. Retirar");
             System.out.println("3. Consultar saldo");
             System.out.println("4. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.print("Seleccione una opciï¿½n: ");
 
             String opcion = scanner.nextLine();
 
@@ -234,11 +234,11 @@ public class Banco {
                         return;
 
                     default:
-                        System.out.println("Opción no válida.");
+                        System.out.println("Opciï¿½n no vï¿½lida.");
                         break;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Error: Debe ingresar un valor numérico.");
+                System.out.println("Error: Debe ingresar un valor numï¿½rico.");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             } catch (InsufficientFundsException e) {
@@ -247,15 +247,15 @@ public class Banco {
         }
     }
 }
-Explicación:
-1. Excepción personalizada: Creamos la excepción InsufficientFundsException para manejar situaciones donde los fondos no son suficientes para realizar un retiro.
-2. Validación de depósitos y retiros: En la clase CuentaBancaria, validamos que los depósitos y retiros sean valores positivos. En caso contrario, se lanza una excepción IllegalArgumentException.
+Explicaciï¿½n:
+1. Excepciï¿½n personalizada: Creamos la excepciï¿½n InsufficientFundsException para manejar situaciones donde los fondos no son suficientes para realizar un retiro.
+2. Validaciï¿½n de depï¿½sitos y retiros: En la clase Excepciones.CuentaBancaria, validamos que los depï¿½sitos y retiros sean valores positivos. En caso contrario, se lanza una excepciï¿½n IllegalArgumentException.
 3. Manejo de excepciones en el programa principal:
-• Si el usuario ingresa un valor no numérico, se captura la excepción NumberFormatException.
-• Si intenta retirar más dinero del que tiene en la cuenta, se lanza y captura la excepción personalizada InsufficientFundsException.
-Ejecución:
-	Cuando el programa se ejecuta, guía al usuario a través de las operaciones bancarias, y maneja las excepciones de manera adecuada, evitando que el programa se bloquee por errores de entrada o falta de fondos.
-Este es un ejemplo más complejo que combina el manejo de excepciones estándar y personalizadas para crear un sistema robusto y a prueba de errores.
+ï¿½ Si el usuario ingresa un valor no numï¿½rico, se captura la excepciï¿½n NumberFormatException.
+ï¿½ Si intenta retirar mï¿½s dinero del que tiene en la cuenta, se lanza y captura la excepciï¿½n personalizada InsufficientFundsException.
+Ejecuciï¿½n:
+	Cuando el programa se ejecuta, guï¿½a al usuario a travï¿½s de las operaciones bancarias, y maneja las excepciones de manera adecuada, evitando que el programa se bloquee por errores de entrada o falta de fondos.
+Este es un ejemplo mï¿½s complejo que combina el manejo de excepciones estï¿½ndar y personalizadas para crear un sistema robusto y a prueba de errores.
 
 
 

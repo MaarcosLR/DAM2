@@ -46,7 +46,7 @@ public class LatticeIOTest {
     }
 
     /**
-     * Main method for running the LatticeIOTest demo.
+     * ejemplo.Main method for running the LatticeIOTest demo.
      * 
      * @throws IOException
      * @throws UnsupportedAudioFileException

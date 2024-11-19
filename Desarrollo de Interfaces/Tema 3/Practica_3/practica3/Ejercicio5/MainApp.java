@@ -1,4 +1,4 @@
-//package practica3.Ejercicio5;
+//package practica3.practica1.Ejercicio5;
 //
 //import javax.swing.*;
 //

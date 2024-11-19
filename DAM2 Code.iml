@@ -14,13 +14,15 @@
       <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/EjPractica3" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/KeyListenerExample" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/MouseListenerExample" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/TestJAR" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Tema 1/Practica_1" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Tema 2/Practica_2" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Tema 2/Practica_2extra" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Tema 3/Practica_3" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Programación de servicios y procesos/Tema 1/Ejercicios" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Tema 3/Practica_3extra" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Acceso a Datos/REPASO JAVA/Ejercicio_Repaso" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/TestJar" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

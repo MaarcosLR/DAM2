@@ -1,8 +1,8 @@
-EJERCICIOS  DE GESTIÓN DE EXCEPCIONES
+EJERCICIOS  DE GESTIï¿½N DE EXCEPCIONES
 
-1. 1. Gestión de inventario
-Enunciado: Crea una aplicación de inventario donde, al intentar agregar un nuevo producto, se lance una excepción personalizada ProductoDuplicadoException si el producto ya existe en el inventario. Utiliza throw para lanzar la excepción y try/catch para manejarla en el método principal.
-Solución:
+1. 1. Gestiï¿½n de inventario
+Enunciado: Crea una aplicaciï¿½n de inventario donde, al intentar agregar un nuevo producto, se lance una excepciï¿½n personalizada ProductoDuplicadoException si el producto ya existe en el inventario. Utiliza throw para lanzar la excepciï¿½n y try/catch para manejarla en el mï¿½todo principal.
+Soluciï¿½n:
 
 class ProductoDuplicadoException extends Exception {
     public ProductoDuplicadoException(String mensaje) {
@@ -21,12 +21,12 @@ class Inventario {
     }
 }
 
-public class Main {
+public class ejemplo.Main {
     public static void main(String[] args) {
         Inventario inventario = new Inventario();
         try {
             inventario.agregarProducto("Laptop");
-            inventario.agregarProducto("Laptop"); // Esto lanzará una excepción
+            inventario.agregarProducto("Laptop"); // Esto lanzarï¿½ una excepciï¿½n
         } catch (ProductoDuplicadoException e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -34,9 +34,9 @@ public class Main {
 }
 
 
-2. Conversión de moneda
-Enunciado: Diseña un programa que convierta cantidades de una moneda a otra. Si el monto ingresado es negativo, utiliza throw para lanzar una excepción MontoInvalidoException. Captura esta excepción con try/catch e informa al usuario que el monto ingresado es inválido.
-Solución:
+2. Conversiï¿½n de moneda
+Enunciado: Diseï¿½a un programa que convierta cantidades de una moneda a otra. Si el monto ingresado es negativo, utiliza throw para lanzar una excepciï¿½n MontoInvalidoException. Captura esta excepciï¿½n con try/catch e informa al usuario que el monto ingresado es invï¿½lido.
+Soluciï¿½n:
 
 class MontoInvalidoException extends Exception {
     public MontoInvalidoException(String mensaje) {
@@ -49,7 +49,7 @@ public class ConversorMoneda {
         if (monto < 0) {
             throw new MontoInvalidoException("El monto no puede ser negativo.");
         }
-        return monto * 1.1; // Conversión de ejemplo
+        return monto * 1.1; // Conversiï¿½n de ejemplo
     }
 
     public static void main(String[] args) {
@@ -64,8 +64,8 @@ public class ConversorMoneda {
 
 
 3. Sistema de reservas de vuelos
-Enunciado: Implementa un sistema que permita reservar vuelos. Si el usuario intenta reservar un vuelo y no hay asientos disponibles, lanza una excepción AsientosNoDisponiblesException usando throw. Muestra un mensaje de error adecuado en la salida utilizando try/catch para capturar y gestionar la excepción.
-Solución:
+Enunciado: Implementa un sistema que permita reservar vuelos. Si el usuario intenta reservar un vuelo y no hay asientos disponibles, lanza una excepciï¿½n AsientosNoDisponiblesException usando throw. Muestra un mensaje de error adecuado en la salida utilizando try/catch para capturar y gestionar la excepciï¿½n.
+Soluciï¿½n:
 
 class AsientosNoDisponiblesException extends Exception {
     public AsientosNoDisponiblesException(String mensaje) {
@@ -89,7 +89,7 @@ class Vuelo {
     }
 }
 
-public class Main {
+public class ejemplo.Main {
     public static void main(String[] args) {
         Vuelo vuelo = new Vuelo(0);
         try {
@@ -102,8 +102,8 @@ public class Main {
 
 
 4. Procesamiento de archivos
-Enunciado: Crea un programa que lea un archivo de texto. Si el archivo no existe, lanza una excepción ArchivoNoEncontradoException utilizando throw. Utiliza try/catch para manejar el error y solicitar al usuario que ingrese una ruta válida.
-Solución:
+Enunciado: Crea un programa que lea un archivo de texto. Si el archivo no existe, lanza una excepciï¿½n ArchivoNoEncontradoException utilizando throw. Utiliza try/catch para manejar el error y solicitar al usuario que ingrese una ruta vï¿½lida.
+Soluciï¿½n:
 
 import java.io.*;
 
@@ -133,37 +133,37 @@ public class ProcesadorArchivo {
 
 
 5. Sistema bancario
-Enunciado: Diseña un programa para realizar transferencias entre cuentas bancarias. Si el saldo de la cuenta no es suficiente para completar la transferencia, lanza una excepción SaldoInsuficienteException usando throw. Utiliza try/catch para capturar la excepción y devolver un mensaje indicando que la transferencia no es posible debido a fondos insuficientes.
-Solución:
+Enunciado: Diseï¿½a un programa para realizar transferencias entre cuentas bancarias. Si el saldo de la cuenta no es suficiente para completar la transferencia, lanza una excepciï¿½n Excepciones.SaldoInsuficienteException usando throw. Utiliza try/catch para capturar la excepciï¿½n y devolver un mensaje indicando que la transferencia no es posible debido a fondos insuficientes.
+Soluciï¿½n:
 
-class SaldoInsuficienteException extends Exception {
-    public SaldoInsuficienteException(String mensaje) {
+class Excepciones.SaldoInsuficienteException extends Exception {
+    public Excepciones.SaldoInsuficienteException(String mensaje) {
         super(mensaje);
     }
 }
 
-class CuentaBancaria {
+class Excepciones.CuentaBancaria {
     private double saldo;
 
-    public CuentaBancaria(double saldoInicial) {
+    public Excepciones.CuentaBancaria(double saldoInicial) {
         this.saldo = saldoInicial;
     }
 
-    public void transferir(double monto) throws SaldoInsuficienteException {
+    public void transferir(double monto) throws Excepciones.SaldoInsuficienteException {
         if (monto > saldo) {
-            throw new SaldoInsuficienteException("Saldo insuficiente para realizar la transferencia.");
+            throw new Excepciones.SaldoInsuficienteException("Saldo insuficiente para realizar la transferencia.");
         }
         saldo -= monto;
         System.out.println("Transferencia realizada. Nuevo saldo: " + saldo);
     }
 }
 
-public class Main {
+public class ejemplo.Main {
     public static void main(String[] args) {
-        CuentaBancaria cuenta = new CuentaBancaria(100);
+        Excepciones.CuentaBancaria cuenta = new Excepciones.CuentaBancaria(100);
         try {
             cuenta.transferir(150);
-        } catch (SaldoInsuficienteException e) {
+        } catch (Excepciones.SaldoInsuficienteException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
