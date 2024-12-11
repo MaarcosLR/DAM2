@@ -23,6 +23,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/TestJar" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Ejemplos/componenteditado" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Tema 4/Ejemplos/BDD/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Desarrollo de Interfaces/Tema 4/Practicas" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
