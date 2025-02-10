@@ -1,6 +1,6 @@
 
 
-practica1.Ejercicio1: Propagar excepciones con throws
+practica1.UT3_Practica: Propagar excepciones con throws
 Problema: Crea un programa que lance una excepci�n personalizada si un n�mero dado es negativo.
 
 public class CustomExceptionTest {
