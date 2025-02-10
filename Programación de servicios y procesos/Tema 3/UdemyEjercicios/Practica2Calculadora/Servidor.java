@@ -51,7 +51,7 @@ public class Servidor {
                 int num1 = readInt();
                 writeUTF("Introduce otro número");
                 int num2 = readInt();
-                writeUTF("El resultado de la suma es: " + num1+num2);
+                writeUTF("El resultado de la suma es: " + (num1+num2));
                 break;
             case 2:
                 writeUTF("Has elegido RESTAR");
