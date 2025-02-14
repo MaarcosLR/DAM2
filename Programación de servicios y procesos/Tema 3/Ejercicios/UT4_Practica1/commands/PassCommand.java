@@ -1,6 +1,6 @@
 package UT4_Practica1.commands;
 
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,17 +25,19 @@ public class PassCommand implements FTPCommand {
 
     @Override
     public void execute(String[] args, PrintWriter salida) {
+        PrintWriter writer = new PrintWriter(salida, true);  // Usamos PrintWriter para poder hacer println
+
         if (password == null || password.isEmpty()) {
-            salida.println("ERROR: Debes proporcionar una contraseña.");
+            writer.println("ERROR: Debes proporcionar una contraseña.");
             return;
         }
 
         // Verificamos si la contraseña corresponde al usuario
         String correctPassword = USERS.get(username);
         if (correctPassword != null && correctPassword.equals(password)) {
-            salida.println("Inicio de sesión correcto.");
+            writer.println("Inicio de sesión correcto.");
         } else {
-            salida.println("ERROR: Contraseña incorrecta.");
+            writer.println("ERROR: Contraseña incorrecta.");
         }
     }
 }

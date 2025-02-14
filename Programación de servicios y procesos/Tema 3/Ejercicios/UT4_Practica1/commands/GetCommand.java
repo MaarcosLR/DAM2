@@ -1,8 +1,18 @@
 package UT4_Practica1.commands;
 
 import java.io.*;
+import java.net.Socket;
+import java.util.Base64;
 
 public class GetCommand implements FTPCommand {
+    private Socket clientSocket;
+    private BufferedReader input;
+
+    public GetCommand(Socket clientSocket, BufferedReader input) {
+        this.clientSocket = clientSocket;
+        this.input = input;
+    }
+
     @Override
     public void execute(String[] args, PrintWriter salida) {
         if (args.length < 2) {
@@ -10,31 +20,31 @@ public class GetCommand implements FTPCommand {
             return;
         }
 
-        // Ruta del archivo a enviar
-        File archivo = new File(args[1]);
-        if (!archivo.exists() || archivo.isDirectory()) {
-            salida.println("ERROR: Archivo no encontrado.");
+        String nombreArchivo = args[1];
+        File archivo = new File(nombreArchivo);
+
+        if (!archivo.exists() || !archivo.isFile()) {
+            salida.println("ERROR: El archivo no existe.");
             return;
         }
 
-        // Notificar al cliente que el archivo va a ser enviado
-        salida.println("OK: Enviando archivo " + archivo.getName());
+        try (BufferedReader lectorArchivo = new BufferedReader(new FileReader(archivo))) {
+            salida.println("OK: Enviando archivo " + nombreArchivo);
 
-        // Enviar el archivo al cliente en bloques
-        try (FileInputStream fis = new FileInputStream(archivo);
-             BufferedOutputStream out = new BufferedOutputStream(salida)) {
-            byte[] buffer = new byte[4096];  // Tamaño del buffer de 4KB
-            int bytesRead;
-
-            // Leer el archivo en bloques y enviarlo al cliente
-            while ((bytesRead = fis.read(buffer)) != -1) {
-                out.write(buffer, 0, bytesRead);
+            String linea;
+            while ((linea = lectorArchivo.readLine()) != null) {
+                // Codificar la línea en Base64 y enviarla
+                String encodedLine = Base64.getEncoder().encodeToString(linea.getBytes());
+                salida.println(encodedLine);
             }
-            out.flush();  // Asegurarse de que todos los datos se envíen
-            salida.println("EOF"); // Señal de fin de archivo
 
+            // Enviar "EOF" al final para indicar el fin del archivo
+            salida.println("EOF");
+
+            System.out.println("Archivo enviado correctamente: " + nombreArchivo);
         } catch (IOException e) {
             salida.println("ERROR: No se pudo leer el archivo.");
+            e.printStackTrace();
         }
     }
 }

@@ -1,13 +1,14 @@
 package UT4_Practica1.commands;
 
-import java.io.File;
-import java.io.PrintWriter;
+import java.io.*;
 
 public class CwdCommand implements FTPCommand {
     @Override
     public void execute(String[] args, PrintWriter salida) {
+        PrintWriter writer = new PrintWriter(salida, true);  // Usamos PrintWriter para poder hacer println
+
         if (args.length < 2) {
-            salida.println("ERROR: Debes proporcionar un directorio.");
+            writer.println("ERROR: Debes proporcionar un directorio.");
             return;
         }
 
@@ -15,9 +16,9 @@ public class CwdCommand implements FTPCommand {
         if (nuevoDirectorio.isDirectory() && nuevoDirectorio.exists()) {
             // Cambiar el directorio de trabajo para el servidor
             System.setProperty("user.dir", nuevoDirectorio.getAbsolutePath());  // Cambia la propiedad de directorio
-            salida.println("Directorio cambiado a: " + nuevoDirectorio.getAbsolutePath());
+            writer.println("Directorio cambiado a: " + nuevoDirectorio.getAbsolutePath());
         } else {
-            salida.println("ERROR: No se pudo cambiar al directorio especificado.");
+            writer.println("ERROR: No se pudo cambiar al directorio especificado.");
         }
     }
 }

@@ -1,11 +1,13 @@
 package UT4_Practica1.commands;
 
+import java.io.BufferedReader;
+import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CommandParser {
     private final Map<String, Class<? extends FTPCommand>> commandMap = new HashMap<>();
-    private String username;  // Variable para almacenar el nombre de usuario
+    private String username;
 
     public CommandParser() {
         commandMap.put("USER", UserCommand.class);
@@ -19,7 +21,7 @@ public class CommandParser {
         commandMap.put("QUIT", QuitCommand.class);
     }
 
-    public FTPCommand getCommand(String commandName, String argument) {
+    public FTPCommand getCommand(String commandName, String argument, Socket clientSocket, BufferedReader input) {
         Class<? extends FTPCommand> commandClass = commandMap.get(commandName.toUpperCase());
         if (commandClass == null) {
             return null;
@@ -27,29 +29,28 @@ public class CommandParser {
 
         try {
             if (commandClass == UserCommand.class) {
-                // Para el comando USER, pasamos solo el argumento (nombre de usuario)
-                return new UserCommand(argument);
+                return new UserCommand(argument); // Solo el argumento para USER
             } else if (commandClass == PassCommand.class) {
-                // Para el comando PASS, pasamos tanto el nombre de usuario como la contraseña
                 if (username == null) {
-                    return null;  // Si no hay un usuario validado previamente, no procesamos el comando PASS
+                    return null;  // Si no hay un usuario válido, no procesamos el comando PASS
                 }
-                return new PassCommand(username, argument);  // Pasamos el nombre de usuario y la contraseña
+                return new PassCommand(username, argument);  // Se pasa el nombre de usuario y la contraseña
+            } else if (commandClass == GetCommand.class || commandClass == PutCommand.class) {
+                // Para comandos que requieren Socket y BufferedReader
+                return commandClass.getDeclaredConstructor(Socket.class, BufferedReader.class)
+                        .newInstance(clientSocket, input);
             }
-            // Para otros comandos sin parámetros
-            return commandClass.getDeclaredConstructor().newInstance();
+            return commandClass.getDeclaredConstructor().newInstance();  // Para comandos sin parámetros
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    // Método para establecer el nombre de usuario (esto se hace en el comando USER)
     public void setUsername(String username) {
         this.username = username;
     }
 
-    // Método para obtener el nombre de usuario
     public String getUsername() {
         return username;
     }

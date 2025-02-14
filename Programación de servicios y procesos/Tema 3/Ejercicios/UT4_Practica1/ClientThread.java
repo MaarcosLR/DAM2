@@ -43,8 +43,8 @@ public class ClientThread extends Thread {
                 String commandName = partes[0];
                 String argument = partes.length > 1 ? partes[1] : "";  // Obtener el argumento si existe
 
-                // Usar CommandParser para analizar el comando
-                FTPCommand command = parser.getCommand(commandName, argument);
+                // Usar CommandParser para analizar el comando, pasamos el Socket y BufferedReader
+                FTPCommand command = parser.getCommand(commandName, argument, socket, entrada);
 
                 if (command != null) {
                     // Para el comando USER, solo se pasa el nombre de usuario

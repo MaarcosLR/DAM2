@@ -4,11 +4,13 @@ import java.io.PrintWriter;
 
 public class CommandExecutor {
 
-    // Cambié la firma para aceptar el arreglo de argumentos
+    // Recibe OutputStream y lo convierte a PrintWriter dentro del método
     public void executeCommand(FTPCommand command, String[] args, PrintWriter salida) {
         try {
+            PrintWriter writer = new PrintWriter(salida, true); // Convertimos a PrintWriter
+
             // Ejecutar el comando pasando los argumentos y la salida para la respuesta
-            command.execute(args, salida);
+            command.execute(args, writer);
         } catch (Exception e) {
             salida.println("ERROR: No se pudo ejecutar el comando.");
         }

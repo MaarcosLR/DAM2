@@ -1,6 +1,6 @@
 package UT4_Practica1.commands;
 
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,16 +22,18 @@ public class UserCommand implements FTPCommand {
 
     @Override
     public void execute(String[] args, PrintWriter salida) {
+        PrintWriter writer = new PrintWriter(salida, true);  // Usamos PrintWriter para poder hacer println
+
         if (username == null || username.isEmpty()) {
-            salida.println("ERROR: Debes proporcionar un nombre de usuario.");
+            writer.println("ERROR: Debes proporcionar un nombre de usuario.");
             return;
         }
 
         // Verificamos si el nombre de usuario existe en el conjunto predefinido
         if (USERS.containsKey(username)) {
-            salida.println("Usuario " + username + " recibido. Introduce PASS.");
+            writer.println("Usuario " + username + " recibido. Introduce PASS.");
         } else {
-            salida.println("ERROR: Usuario incorrecto.");
+            writer.println("ERROR: Usuario incorrecto.");
         }
     }
 
